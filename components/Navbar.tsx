@@ -67,11 +67,11 @@ export default function Navbar() {
       <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative">
         {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
         <a href="#" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
-          <Logo className="w-30 h-45 sm:w-36 sm:h-54" />
+          <Logo className="w-24 h-36 sm:w-36 sm:h-54" />
         </a>
 
         {/* Spacer to reserve space for the absolute logo */}
-        <div className="w-30 sm:w-36 flex-shrink-0" />
+        <div className="w-24 sm:w-36 flex-shrink-0" />
 
         {/* Desktop Menu */}
         <nav 
@@ -140,7 +140,7 @@ export default function Navbar() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`font-display text-xs tracking-[0.2em] font-bold py-2 transition-colors ${
+              className={`font-display text-[13px] sm:text-sm tracking-[0.2em] font-bold py-2 transition-colors ${
                 item.active
                   ? "text-[#9E3E26] border-l-2 border-[#9E3E26] pl-3"
                   : "text-[#2E2522]/80 hover:text-[#9E3E26] pl-3"

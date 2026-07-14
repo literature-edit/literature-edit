@@ -34,7 +34,7 @@ export default function StudioSection() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Side: Vintage Typewriter & Books Image */}
-        <div className="lg:col-span-6 relative w-full h-[400px] sm:h-[500px] shadow-sm overflow-hidden group">
+        <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[450px] lg:h-[500px] shadow-sm overflow-hidden group">
           <Image
             src="/vintage-studio.png"
             alt="Vintage writing desk with a typewriter, quill and inkwell, open books, and a background bookshelf"

@@ -6,8 +6,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section 
-      className="relative w-full px-6 sm:px-12 lg:px-16 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-      style={{ position: "relative", top: "-58px", left: "2px" }}
+      className="relative w-full px-6 sm:px-12 lg:px-16 pt-28 pb-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:-top-[58px] lg:left-[2px]"
     >
       {/* Left Text Content */}
       <div className="lg:col-span-5 flex flex-col justify-center">
