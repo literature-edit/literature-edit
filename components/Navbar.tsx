@@ -64,11 +64,14 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center py-4 relative">
-        {/* Logo overlapping slightly if wanted, or placed neatly */}
-        <a href="#" className="flex-shrink-0 z-10 transition-opacity hover:opacity-90 py-1">
-          <Logo className="w-20 h-30 sm:w-24 sm:h-36" />
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center h-16 sm:h-20 relative">
+        {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
+        <a href="#" className="absolute left-6 sm:left-12 top-1 sm:top-2 z-20 transition-opacity hover:opacity-90">
+          <Logo className="w-16 h-24 sm:w-20 sm:h-30" />
         </a>
+
+        {/* Spacer to reserve space for the absolute logo */}
+        <div className="w-16 sm:w-20 flex-shrink-0" />
 
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
