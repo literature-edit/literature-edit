@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Lora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Literature Edit | Asma Khan's Literary Studio",
-  description: "A literary studio dedicated to thoughtful teaching, editorial excellence, and academic mentorship. For readers, writers, and thinkers.",
+  title: "Literature Edit | Wireframe (Low-Fi)",
+  description: "Wireframe layout for Literature Edit studio.",
 };
 
 export default function RootLayout({
@@ -29,9 +20,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${lora.variable} h-full antialiased`}
+      className={`${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FAF6F0] text-[#2A2421] selection:bg-[#963D26] selection:text-white">
+      <body className="min-h-full flex flex-col bg-gray-50 text-gray-900 selection:bg-gray-200">
         {children}
       </body>
     </html>

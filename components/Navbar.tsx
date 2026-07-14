@@ -17,75 +17,41 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-[#FAF6F0] z-50 border-b border-[#D1C2B0]/40">
-      {/* Top Utility Bar */}
-      <div className="w-full bg-[#963D26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.2em] font-display font-medium">
-        <span>A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
+    <header className="w-full bg-white z-50 border-b border-gray-300">
+      {/* Top Utility Bar (Grayscale) */}
+      <div className="w-full bg-gray-100 text-gray-600 py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-wider font-mono border-b border-gray-200">
+        <span>[BANNER: A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS]</span>
         
-        {/* Social Icons */}
-        <div className="flex items-center gap-4">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#C5A880] transition-colors"
-            aria-label="Instagram"
-          >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#C5A880] transition-colors"
-            aria-label="LinkedIn"
-          >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a
-            href="mailto:hello@literatureedit.com"
-            className="hover:text-[#C5A880] transition-colors"
-            aria-label="Email"
-          >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </a>
+        {/* Social Icons Placeholders */}
+        <div className="flex items-center gap-3">
+          <span className="hover:text-black transition-colors cursor-pointer">[INSTAGRAM]</span>
+          <span className="text-gray-300">|</span>
+          <span className="hover:text-black transition-colors cursor-pointer">[LINKEDIN]</span>
+          <span className="text-gray-300">|</span>
+          <span className="hover:text-black transition-colors cursor-pointer">[EMAIL]</span>
         </div>
       </div>
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center py-4 relative">
-        {/* Logo overlapping slightly if wanted, or placed neatly */}
-        <a href="#" className="flex-shrink-0 z-10 transition-opacity hover:opacity-90">
-          <Logo className="w-24 h-24 sm:w-28 sm:h-28" />
+        {/* Wireframe Logo */}
+        <a href="#" className="flex-shrink-0 z-10">
+          <Logo className="w-20 h-20" />
         </a>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <nav className="hidden lg:flex items-center gap-6">
           {menuItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`font-display text-xs tracking-[0.2em] relative py-2 transition-colors duration-300 ${
+              className={`font-mono text-xs tracking-wider relative py-2 transition-colors duration-200 ${
                 item.active
-                  ? "text-[#963D26] font-semibold"
-                  : "text-[#2A2421]/80 hover:text-[#963D26]"
+                  ? "text-black font-bold border-b-2 border-black"
+                  : "text-gray-500 hover:text-black"
               }`}
             >
               {item.label}
-              {item.active && (
-                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#963D26]" />
-              )}
             </a>
           ))}
         </nav>
@@ -93,51 +59,31 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-[#2A2421] focus:outline-none"
+          className="lg:hidden p-2 text-gray-700 border border-gray-300 bg-gray-50 hover:bg-gray-100"
           aria-label="Toggle Menu"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+          <span className="font-mono text-xs uppercase px-1">
+            {isOpen ? "Close" : "Menu"}
+          </span>
         </button>
       </div>
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out bg-[#FAF6F0] overflow-hidden ${
-          isOpen ? "max-h-[450px] border-b border-[#D1C2B0]/40" : "max-h-0"
+        className={`lg:hidden transition-all duration-200 ease-in-out bg-white overflow-hidden ${
+          isOpen ? "max-h-[400px] border-b border-gray-300" : "max-h-0"
         }`}
       >
-        <nav className="flex flex-col px-8 py-4 gap-4">
+        <nav className="flex flex-col px-8 py-4 gap-3 border-t border-gray-200">
           {menuItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`font-display text-xs tracking-[0.2em] py-2 transition-colors ${
+              className={`font-mono text-xs tracking-wider py-2 ${
                 item.active
-                  ? "text-[#963D26] font-semibold border-l-2 border-[#963D26] pl-2"
-                  : "text-[#2A2421]/80 hover:text-[#963D26] pl-2"
+                  ? "text-black font-bold border-l-2 border-black pl-2"
+                  : "text-gray-500 hover:text-black pl-2"
               }`}
             >
               {item.label}
