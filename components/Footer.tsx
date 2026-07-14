@@ -32,7 +32,7 @@ export default function Footer() {
           <span className="font-display text-sm font-semibold tracking-wider text-[#9E3E26]">
             LITERATURE EDIT
           </span>
-          <p className="font-serif-body text-[13px] leading-relaxed text-[#2E2522]/80 mt-2 max-w-xs">
+          <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/80 mt-2 max-w-xs">
             For Readers, Writers, Learners. Dedicated to thoughtful teaching, editorial excellence, and academic mentorship.
           </p>
 
@@ -111,7 +111,7 @@ export default function Footer() {
           <span className="font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Contact
           </span>
-          <div className="flex flex-col gap-3 font-serif-body text-[13px] leading-relaxed text-[#2E2522]/85">
+          <div className="flex flex-col gap-3 font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85">
             <p>
               <a
                 href="mailto:hello@literatureedit.com"

@@ -114,7 +114,7 @@ export default function FeaturedProgrammes() {
         <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
           What We Offer
         </span>
-        <h2 className="font-display text-2xl sm:text-3xl font-light text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
           FEATURED PROGRAMMES
         </h2>
         {/* Diamond Divider */}
@@ -153,12 +153,12 @@ export default function FeaturedProgrammes() {
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-sm font-semibold tracking-[0.16em] text-[#9E3E26] min-h-[40px] flex items-center justify-center">
+            <h3 className="font-display text-sm font-bold tracking-[0.16em] text-[#9E3E26] min-h-[40px] flex items-center justify-center">
               {prog.title}
             </h3>
 
             {/* Description */}
-            <p className="font-serif-body text-[13px] leading-[1.65] text-[#2E2522]/80 mt-4 mb-8 flex-grow max-w-[240px]">
+            <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.65] text-[#2E2522]/80 mt-4 mb-8 flex-grow max-w-[240px]">
               {prog.description}
             </p>
 

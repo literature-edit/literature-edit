@@ -35,7 +35,7 @@ export default function FromDesk() {
         <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
           The Journal
         </span>
-        <h2 className="font-display text-2xl sm:text-3xl font-light text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
           FROM THE LITERARY DESK
         </h2>
         <p className="font-serif-body text-[13px] italic text-[#2E2522]/70 mt-2 text-center">
@@ -70,12 +70,12 @@ export default function FromDesk() {
             </span>
 
             {/* Title */}
-            <h3 className="font-display text-lg font-light text-[#2E2522] tracking-wide group-hover:text-[#9E3E26] transition-colors duration-300 mb-2 leading-snug">
+            <h3 className="font-display text-lg font-bold text-[#2E2522] tracking-wide group-hover:text-[#9E3E26] transition-colors duration-300 mb-2 leading-snug">
               {art.title}
             </h3>
 
             {/* Excerpt */}
-            <p className="font-serif-body text-[13px] leading-relaxed text-[#2E2522]/80 mb-5 flex-grow">
+            <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/80 mb-5 flex-grow">
               {art.excerpt}
             </p>
 

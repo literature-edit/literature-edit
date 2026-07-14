@@ -50,7 +50,7 @@ export default function StudioSection() {
             About the Studio
           </span>
           
-          <h2 className="font-display text-3xl sm:text-4xl font-light text-[#9E3E26] mt-3 tracking-[0.08em]">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#9E3E26] mt-3 tracking-[0.08em]">
             A LITERARY STUDIO
           </h2>
           
@@ -61,7 +61,7 @@ export default function StudioSection() {
             <div className="h-[0.75px] w-24 bg-[#C5A880]/50" />
           </div>
 
-          <div className="font-serif-body text-[#2E2522]/90 text-sm sm:text-[15px] leading-[1.75] space-y-6 max-w-xl">
+          <div className="font-serif-body text-[#2E2522]/90 text-[15px] sm:text-base leading-[1.75] space-y-6 max-w-xl">
             <p className="font-semibold text-[#9E3E26]/90">
               Literature Edit is where ideas are explored, questions are deepened, and voices are shaped.
             </p>

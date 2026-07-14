@@ -32,7 +32,7 @@ export default function Hero() {
         </p>
 
         {/* Body Paragraph */}
-        <p className="font-serif-body text-[#2E2522]/90 text-[14px] sm:text-[15px] leading-relaxed max-w-md mt-6 opacity-95">
+        <p className="font-serif-body text-[#2E2522]/90 text-[15px] sm:text-base leading-relaxed max-w-md mt-6 opacity-95">
           A literary studio dedicated to thoughtful teaching, editorial excellence, and academic mentorship. From IGCSE and IB classrooms to university applications and editorial projects, every interaction is rooted in curiosity, clarity, and craft.
         </p>
 

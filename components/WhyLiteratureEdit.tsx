@@ -93,7 +93,7 @@ export default function WhyLiteratureEdit() {
           <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
             Our Core Values
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-light text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
             WHY LITERATURE EDIT?
           </h2>
           {/* Diamond Divider */}
@@ -128,7 +128,7 @@ export default function WhyLiteratureEdit() {
               </h3>
 
               {/* Description */}
-              <p className="font-serif-body text-[13px] leading-[1.6] text-[#2E2522]/80 max-w-[220px]">
+              <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.6] text-[#2E2522]/80 max-w-[220px]">
                 {pt.description}
               </p>
             </div>
