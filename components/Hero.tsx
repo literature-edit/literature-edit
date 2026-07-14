@@ -5,12 +5,15 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full max-w-7xl mx-auto px-6 sm:px-12 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section 
+      className="relative w-full px-6 sm:px-12 lg:px-16 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+      style={{ position: "relative", top: "-58px", left: "2px" }}
+    >
       {/* Left Text Content */}
       <div className="lg:col-span-5 flex flex-col justify-center">
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-light text-[#9E3E26] leading-[1.05] tracking-[0.06em]">
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#9E3E26] leading-[1.05] tracking-[0.06em]">
           LITERATURE
-          <span className="block mt-2 font-normal">EDIT</span>
+          <span className="block mt-2">EDIT</span>
         </h1>
 
         {/* Asterisk/Flower Divider Ornament */}
@@ -37,13 +40,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 mt-10">
           <a
             href="#programmes"
-            className="inline-flex justify-center items-center px-6 py-3.5 text-[10px] tracking-[0.2em] font-display font-medium bg-[#9E3E26] text-[#FAF6F0] hover:bg-[#85321E] hover:shadow-sm transition-all duration-300 uppercase"
+            className="inline-flex justify-center items-center px-6 py-3.5 text-xs tracking-[0.18em] font-display font-bold bg-[#9E3E26] text-[#FAF6F0] hover:bg-[#85321E] hover:shadow-sm transition-all duration-300 uppercase rounded"
           >
             Explore Programmes
           </a>
           <a
             href="#contact"
-            className="inline-flex justify-center items-center px-6 py-3.5 border border-[#9E3E26] text-[10px] tracking-[0.2em] font-display font-medium text-[#9E3E26] bg-[#FAF6F0] hover:bg-[#9E3E26] hover:text-[#FAF6F0] transition-all duration-300 uppercase"
+            className="inline-flex justify-center items-center px-6 py-3.5 border border-[#9E3E26] text-xs tracking-[0.18em] font-display font-bold text-[#9E3E26] bg-[#FAF6F0] hover:bg-[#9E3E26] hover:text-[#FAF6F0] transition-all duration-300 uppercase rounded"
           >
             Book a Consultation
           </a>

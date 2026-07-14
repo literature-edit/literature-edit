@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import PlaceholderImage from "./PlaceholderImage";
+import Image from "next/image";
 
 export default function FromDesk() {
   const articles = [
@@ -9,67 +9,73 @@ export default function FromDesk() {
       label: "ESSAY",
       title: "Why We Still Read Literature",
       excerpt: "On the enduring relevance of stories in an age of speed.",
-      imageLabel: "Essay (Pen & Notebook)",
+      image: "/desk-essay.png",
       link: "#",
     },
     {
       label: "READING LIST",
       title: "Books That Stay With You",
       excerpt: "A curated list of timeless reads across genres.",
-      imageLabel: "Reading List (Books stack & Tea)",
+      image: "/desk-books.png",
       link: "#",
     },
     {
       label: "STUDIO NOTE",
       title: "On Writing with Honesty",
       excerpt: "A note on voice, vulnerability and the writing process.",
-      imageLabel: "Studio Note (Autumn Street)",
+      image: "/desk-studio.png",
       link: "#",
     },
   ];
 
   return (
-    <section className="w-full bg-gray-50 py-16 px-6 sm:px-12 max-w-7xl mx-auto border-b border-gray-300">
+    <section className="w-full bg-[#FAF6F0] py-20 px-6 sm:px-12 max-w-7xl mx-auto">
       {/* Section Title */}
-      <div className="flex flex-col items-center mb-12">
-        <span className="font-mono text-[10px] tracking-wider text-gray-500 uppercase font-bold">
-          [SECTION: JOURNAL]
+      <div className="flex flex-col items-center mb-16">
+        <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
+          The Journal
         </span>
-        <h2 className="font-mono text-2xl font-bold text-gray-900 mt-2 tracking-wide uppercase text-center">
+        <h2 className="font-display text-2xl sm:text-3xl font-light text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
           FROM THE LITERARY DESK
         </h2>
-        <p className="font-mono text-[11px] text-gray-500 mt-1 text-center">
+        <p className="font-serif-body text-[13px] italic text-[#2E2522]/70 mt-2 text-center">
           Reflections, reading lists and essays from the studio.
         </p>
-        {/* Simple line divider */}
-        <div className="w-20 h-1 bg-gray-400 mt-4" />
+        {/* Diamond Divider */}
+        <div className="flex items-center gap-3 mt-4 w-full justify-center">
+          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
+          <div className="w-1.5 h-1.5 bg-[#9E3E26] rotate-45" />
+          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
+        </div>
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
         {articles.map((art) => (
-          <article key={art.title} className="flex flex-col bg-white border border-gray-300 p-4 shadow-sm">
-            {/* Image Placeholder */}
-            <div className="relative w-full aspect-[4/3] mb-4">
-              <PlaceholderImage
-                label={art.imageLabel}
-                className="w-full h-full"
-                aspectRatio=""
+          <article key={art.title} className="flex flex-col group cursor-pointer">
+            {/* Card Image */}
+            <div className="relative w-full aspect-[4/3] overflow-hidden shadow-sm mb-5 bg-[#FAF6F0] border border-[#C5A880]/20">
+              <Image
+                src={art.image}
+                alt={art.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 30vw"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
             </div>
 
             {/* Label */}
-            <span className="font-mono text-[9px] font-bold text-gray-500 mb-1 uppercase tracking-wider">
+            <span className="font-display text-[9px] font-semibold tracking-[0.2em] text-[#9E3E26] mb-2 uppercase">
               {art.label}
             </span>
 
             {/* Title */}
-            <h3 className="font-mono text-sm font-bold text-gray-900 mb-2 uppercase leading-snug">
+            <h3 className="font-display text-lg font-light text-[#2E2522] tracking-wide group-hover:text-[#9E3E26] transition-colors duration-300 mb-2 leading-snug">
               {art.title}
             </h3>
 
             {/* Excerpt */}
-            <p className="font-sans text-xs leading-relaxed text-gray-600 mb-4 flex-grow">
+            <p className="font-serif-body text-[13px] leading-relaxed text-[#2E2522]/80 mb-5 flex-grow">
               {art.excerpt}
             </p>
 
@@ -77,9 +83,12 @@ export default function FromDesk() {
             <div>
               <a
                 href={art.link}
-                className="font-mono text-[10px] tracking-wider font-bold text-gray-800 hover:text-black uppercase"
+                className="inline-flex items-center gap-1.5 font-display text-[9px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] uppercase group/link"
               >
-                [Read More →]
+                Read More
+                <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
+                  →
+                </span>
               </a>
             </div>
           </article>

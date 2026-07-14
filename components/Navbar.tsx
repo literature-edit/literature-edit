@@ -17,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-[#FAF6F0] z-50 border-b border-[#C5A880]/30">
+    <header className="w-full bg-[#FAF6F0] z-50">
       {/* Top Utility Bar */}
       <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.2em] font-display font-medium">
         <span>A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
@@ -64,24 +64,27 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center h-16 sm:h-20 relative">
+      <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative">
         {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
-        <a href="#" className="absolute left-6 sm:left-12 top-1 sm:top-2 z-20 transition-opacity hover:opacity-90">
-          <Logo className="w-16 h-24 sm:w-20 sm:h-30" />
+        <a href="#" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
+          <Logo className="w-30 h-45 sm:w-36 sm:h-54" />
         </a>
 
         {/* Spacer to reserve space for the absolute logo */}
-        <div className="w-16 sm:w-20 flex-shrink-0" />
+        <div className="w-30 sm:w-36 flex-shrink-0" />
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <nav 
+          className="hidden lg:flex items-center gap-8 xl:gap-10"
+          style={{ position: "relative", top: "16px" }}
+        >
           {menuItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`font-display text-[11px] tracking-[0.2em] relative py-2 transition-colors duration-300 ${
+              className={`font-display text-xs tracking-[0.2em] font-bold relative py-2 transition-colors duration-300 ${
                 item.active
-                  ? "text-[#9E3E26] font-semibold"
+                  ? "text-[#9E3E26]"
                   : "text-[#2E2522]/80 hover:text-[#9E3E26]"
               }`}
             >
@@ -137,9 +140,9 @@ export default function Navbar() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`font-display text-[11px] tracking-[0.2em] py-2 transition-colors ${
+              className={`font-display text-xs tracking-[0.2em] font-bold py-2 transition-colors ${
                 item.active
-                  ? "text-[#9E3E26] font-semibold border-l-2 border-[#9E3E26] pl-3"
+                  ? "text-[#9E3E26] border-l-2 border-[#9E3E26] pl-3"
                   : "text-[#2E2522]/80 hover:text-[#9E3E26] pl-3"
               }`}
             >
