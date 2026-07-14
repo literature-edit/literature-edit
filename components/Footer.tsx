@@ -79,10 +79,10 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="lg:col-span-2 flex flex-col">
-          <span className="font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
+          <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Quick Links
           </span>
-          <nav className="flex flex-col gap-2.5 font-display text-[11px] tracking-wider font-medium text-[#2E2522]/80">
+          <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
             <a href="#" className="hover:text-[#9E3E26] transition-colors">About</a>
             <a href="#" className="hover:text-[#9E3E26] transition-colors">Programmes</a>
             <a href="#" className="hover:text-[#9E3E26] transition-colors">Editorial Services</a>
@@ -94,10 +94,10 @@ export default function Footer() {
 
         {/* Column 3: Programmes */}
         <div className="lg:col-span-3 flex flex-col">
-          <span className="font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
+          <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Programmes
           </span>
-          <nav className="flex flex-col gap-2.5 font-display text-[11px] tracking-wider font-medium text-[#2E2522]/80">
+          <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
             <a href="#" className="hover:text-[#9E3E26] transition-colors">IGCSE English</a>
             <a href="#" className="hover:text-[#9E3E26] transition-colors">IB English</a>
             <a href="#" className="hover:text-[#9E3E26] transition-colors">Literature in English</a>
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* Column 4: Contact */}
         <div className="lg:col-span-3 flex flex-col">
-          <span className="font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
+          <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Contact
           </span>
           <div className="flex flex-col gap-3 font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85">
@@ -126,7 +126,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright row */}
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-8 text-[10px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-8 text-xs sm:text-[13px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
         <p>&copy; {currentYear} Literature Edit. All rights reserved.</p>
         <div className="flex gap-4">
           <a href="#" className="hover:text-[#9E3E26] transition-colors">Privacy Policy</a>
