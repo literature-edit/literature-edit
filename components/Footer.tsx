@@ -34,7 +34,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 relative z-10 border-b border-[#C5A880]/30 pb-12">
         {/* Column 1: Logo & Bio */}
         <div className="lg:col-span-4 flex flex-col items-start relative pt-32 lg:pt-36">
-          <div className="absolute left-0 -top-[75px] lg:-top-[100px] z-20">
+          <div className="absolute left-0 -top-[60px] lg:-top-[85px] z-20">
             <Logo 
               className="w-32 h-48 sm:w-36 sm:h-54" 
               imageStyle={{ inset: "25px 0px 0px -25px" }}
