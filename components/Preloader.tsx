@@ -47,12 +47,18 @@ export default function Preloader() {
       clearTimeout(t2);
       clearTimeout(t3);
       document.body.style.overflow = "";
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.remove("show-preloader");
+      }
     };
   }, []);
 
   useEffect(() => {
     if (phase === "done") {
       document.body.style.overflow = "";
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.remove("show-preloader");
+      }
     }
   }, [phase]);
 
@@ -60,7 +66,7 @@ export default function Preloader() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] pointer-events-auto"
+      className="preloader-overlay fixed inset-0 z-[9999] pointer-events-auto"
       aria-hidden="true"
     >
       {/* Stair panels background */}
@@ -124,6 +130,8 @@ export default function Preloader() {
           className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] object-contain"
           style={{
             filter: "drop-shadow(0 8px 48px rgba(0,0,0,0.12))",
+            animation: "logoEntrance 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards",
+            opacity: 0,
           }}
         />
 
@@ -136,7 +144,13 @@ export default function Preloader() {
               transition: "width 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
             }}
           />
-          <div className="h-1.5 w-1.5 rotate-45 bg-[#C5A880]" />
+          <div
+            className="h-1.5 w-1.5 bg-[#C5A880]"
+            style={{
+              animation: "dividerEntrance 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards",
+              opacity: 0,
+            }}
+          />
           <div
             className="h-px bg-[#C5A880]/60"
             style={{
@@ -154,6 +168,28 @@ export default function Preloader() {
           }
           100% {
             transform: scaleY(0);
+          }
+        }
+        @keyframes logoEntrance {
+          0% {
+            opacity: 0;
+            transform: scale(0.9);
+            filter: blur(8px) drop-shadow(0 0 0 rgba(0,0,0,0));
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+            filter: blur(0) drop-shadow(0 8px 48px rgba(0,0,0,0.12));
+          }
+        }
+        @keyframes dividerEntrance {
+          0% {
+            opacity: 0;
+            transform: rotate(45deg) scale(0.3);
+          }
+          100% {
+            opacity: 1;
+            transform: rotate(45deg) scale(1);
           }
         }
       `}</style>

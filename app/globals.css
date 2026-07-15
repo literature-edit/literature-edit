@@ -89,3 +89,11 @@ body {
     transform: none;
   }
 }
+
+/* Preloader Flash Prevention */
+.preloader-overlay {
+  display: none !important;
+}
+html.show-preloader .preloader-overlay {
+  display: block !important;
+}

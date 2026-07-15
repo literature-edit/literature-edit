@@ -32,7 +32,21 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${cormorant.variable} ${lora.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (typeof window !== 'undefined' && !sessionStorage.getItem('le-preloader-shown')) {
+                  document.documentElement.classList.add('show-preloader');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#FAF6F0] text-[#2E2522] selection:bg-[#9E3E26] selection:text-white">
         <Preloader />
         {children}
