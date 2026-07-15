@@ -10,12 +10,12 @@ export default function StudioSection() {
   return (
     <section className="relative w-full bg-[#FCFAF7] border-y border-[#C5A880]/20 py-20 overflow-hidden">
       {/* Decorative Botanical Branch (flower.webp) background on the right */}
-      <div className="absolute right-0 bottom-0 w-80 h-[480px] opacity-[0.06] pointer-events-none select-none z-0">
+      <div className="absolute right-0 bottom-0 w-80 h-[480px] opacity-[0.08] pointer-events-none select-none z-0">
         <Image
           src="/flower.webp"
           alt="Botanical flower decoration"
           fill
-          className="object-contain object-right-bottom"
+          className="object-contain object-right-bottom filter brightness-0"
         />
       </div>
 
