@@ -9,6 +9,17 @@ import SectionHeading from "./SectionHeading";
 export default function StudioSection() {
   return (
     <section className="relative w-full bg-[#FCFAF7] border-y border-[#C5A880]/20 py-20 overflow-hidden">
+      {/* Background texture overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: "url('/bg.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+
       {/* Decorative Botanical Branch (flower.webp) background on the right */}
       <div className="absolute right-0 bottom-0 w-80 h-[480px] opacity-[0.08] pointer-events-none select-none z-0">
         <Image

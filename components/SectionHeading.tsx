@@ -30,7 +30,7 @@ export default function SectionHeading({
       </h2>
       {description ? (
         <p
-          className={`font-serif-body text-[15px] sm:text-base leading-relaxed text-[#2E2522]/72 mt-4 ${
+          className={`font-serif-body text-[15px] sm:text-base leading-relaxed text-[#2E2522] font-medium mt-4 ${
             isCenter ? "max-w-2xl" : "max-w-xl"
           }`}
         >
@@ -42,9 +42,9 @@ export default function SectionHeading({
           isCenter ? "justify-center" : "justify-start"
         }`}
       >
-        <div className="h-px w-10 bg-[#C5A880]" />
+        <div className="h-[1.5px] w-12 bg-[#C5A880]" />
         <div className="h-1.5 w-1.5 rotate-45 bg-[#9E3E26]" />
-        <div className="h-px w-16 bg-[#C5A880]/60" />
+        <div className="h-[1.5px] w-20 bg-[#C5A880]/80" />
       </div>
     </ScrollReveal>
   );

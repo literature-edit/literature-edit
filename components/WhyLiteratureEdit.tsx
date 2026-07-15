@@ -88,8 +88,18 @@ export default function WhyLiteratureEdit() {
   ];
 
   return (
-    <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/20 py-20 px-6 sm:px-12">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/40 py-20 px-6 sm:px-12 relative overflow-hidden">
+      {/* Background texture overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: "url('/bg.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Title */}
         <div className="mb-16">
           <SectionHeading
@@ -107,10 +117,10 @@ export default function WhyLiteratureEdit() {
               delay={index * 85}
               className={`flex flex-col items-center text-center px-4 py-6 group ${
                 index < 3
-                  ? "lg:border-r lg:border-[#C5A880]/20"
+                  ? "lg:border-r lg:border-[#C5A880]/45"
                   : ""
               } ${
-                index % 2 === 0 ? "md:border-r-0 lg:border-r lg:border-[#C5A880]/20" : ""
+                index % 2 === 0 ? "md:border-r-0 lg:border-r lg:border-[#C5A880]/45" : ""
               }`}
             >
               {/* Icon */}
@@ -119,12 +129,12 @@ export default function WhyLiteratureEdit() {
               </div>
 
               {/* Title */}
-              <h3 className="font-display text-[11px] font-bold tracking-[0.18em] text-[#9E3E26] mb-3">
+              <h3 className="font-display text-[12px] font-bold tracking-[0.18em] text-[#9E3E26] mb-3">
                 {pt.title}
               </h3>
 
               {/* Description */}
-              <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.6] text-[#2E2522]/80 max-w-[220px]">
+              <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.6] text-[#2E2522] font-medium max-w-[220px]">
                 {pt.description}
               </p>
             </ScrollReveal>
