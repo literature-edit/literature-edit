@@ -25,7 +25,7 @@ export default function Navbar() {
 
       {/* Top Utility Bar */}
       <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium relative z-10">
-        <span className="truncate">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
+        <span className="truncate font-bold">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
         
         {/* Social Icons */}
         <div className="flex items-center gap-4">
