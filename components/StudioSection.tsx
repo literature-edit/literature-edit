@@ -32,7 +32,7 @@ export default function StudioSection() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Side: Vintage Typewriter & Books Image */}
-        <ScrollReveal className="lg:col-span-6 relative w-full h-[320px] sm:h-[450px] lg:h-[520px] shadow-[0_22px_70px_rgba(46,37,34,0.12)] overflow-hidden group border border-[#C5A880]/25">
+        <ScrollReveal className="lg:col-span-6 relative w-full h-[320px] sm:h-[450px] lg:h-[520px] shadow-[0_22px_70px_rgba(46,37,34,0.12)] overflow-hidden group border border-[#C5A880]/25 rounded-xl">
           <Image
             src="/vintage-studio.png"
             alt="Vintage writing desk with a typewriter, quill and inkwell, open books, and a background bookshelf"
@@ -58,7 +58,7 @@ export default function StudioSection() {
               Founded by Asma Khan, the studio brings together teaching, editing, and research to help learners and writers engage with language with depth and purpose.
             </p>
             <p>
-              Here, literature is not just studied—it is lived, questioned, and reimagined.
+              Here, literature is not just studied - it is lived, questioned, and reimagined.
             </p>
           </div>
 

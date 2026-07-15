@@ -26,11 +26,11 @@ export default function QuoteSection() {
 
         {/* The Quote */}
         <blockquote className="font-display italic text-2xl sm:text-3xl lg:text-4xl text-[#FAF6F0] leading-relaxed tracking-wide max-w-3xl">
-          Good literature doesn&apos;t simply provide answers&mdash;it teaches us how to ask better questions.
+          Good literature doesn&apos;t simply provide answers - it teaches us how to ask better questions.
         </blockquote>
 
         {/* Author Credit */}
-        <cite className="font-display text-[11px] tracking-[0.3em] text-[#C5A880] not-italic mt-6 font-bold uppercase block">
+        <cite className="font-display text-xs sm:text-[13px] tracking-[0.25em] text-[#C5A880] not-italic mt-6 font-bold uppercase block">
           &mdash; Asma Khan
         </cite>
       </ScrollReveal>

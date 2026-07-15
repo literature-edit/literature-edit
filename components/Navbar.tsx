@@ -24,8 +24,8 @@ export default function Navbar() {
       />
 
       {/* Top Utility Bar */}
-      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium relative z-10">
-        <span className="truncate font-bold">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
+      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[11.5px] tracking-[0.16em] font-display font-bold relative z-10">
+        <span className="truncate">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
         
         {/* Social Icons */}
         <div className="flex items-center gap-4">
@@ -90,7 +90,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`font-display text-xs tracking-[0.2em] font-bold relative py-2 transition-colors duration-300 ${
+              className={`font-display text-[14px] lg:text-[15px] tracking-[0.18em] font-bold relative py-2 transition-colors duration-300 ${
                 active
                   ? "text-[#9E3E26]"
                   : "text-[#2E2522] hover:text-[#9E3E26]"
@@ -151,7 +151,7 @@ export default function Navbar() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`font-display text-[13px] sm:text-sm tracking-[0.2em] font-bold py-2 transition-colors ${
+              className={`font-display text-[15px] sm:text-base tracking-[0.18em] font-bold py-2 transition-colors ${
                 active
                   ? "text-[#9E3E26] border-l-2 border-[#9E3E26] pl-3"
                   : "text-[#2E2522] hover:text-[#9E3E26] pl-3"

@@ -53,7 +53,7 @@ export default function Hero() {
       </div>
 
       {/* Right Image Display with Left Fade Gradient */}
-      <div className="lg:col-span-7 relative w-full h-[350px] sm:h-[500px] lg:h-[580px] overflow-hidden group">
+      <div className="lg:col-span-7 relative w-full h-[350px] sm:h-[500px] lg:h-[580px] overflow-hidden group rounded-xl">
         {/* Soft edge blur overlay blending the image left-side to background on desktop */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#FAF6F0] via-[#FAF6F0]/80 to-transparent pointer-events-none z-10 hidden lg:block" />
 

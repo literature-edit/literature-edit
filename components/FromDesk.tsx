@@ -48,7 +48,7 @@ export default function FromDesk() {
           <ScrollReveal key={art.title} delay={index * 110}>
             <article className="flex flex-col group cursor-pointer">
             {/* Card Image */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_18px_50px_rgba(46,37,34,0.09)] mb-5 bg-[#FAF6F0] border border-[#C5A880]/20">
+            <div className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_18px_50px_rgba(46,37,34,0.09)] mb-5 bg-[#FAF6F0] border border-[#C5A880]/20 rounded-lg">
               <Image
                 src={art.image}
                 alt={art.title}
