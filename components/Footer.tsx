@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   legalFooterLinks,
   programmeFooterLinks,
@@ -14,21 +15,14 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#F3EDE2] border-t border-[#C5A880]/40 text-[#2E2522] pt-16 pb-8 px-6 sm:px-12 relative overflow-hidden">
-      {/* Botanical outline element on bottom right */}
-      <div className="absolute right-4 bottom-4 w-40 h-60 opacity-15 pointer-events-none select-none z-0">
-        <svg
-          viewBox="0 0 100 150"
-          fill="none"
-          stroke="#9E3E26"
-          strokeWidth="0.8"
-          strokeLinecap="round"
-          className="w-full h-full"
-        >
-          <path d="M10,140 C15,105 25,70 65,15" />
-          <path d="M38,85 C42,75 50,72 56,76 C59,78 58,82 54,88 C48,94 40,90 38,85 Z" />
-          <path d="M46,70 C50,60 58,57 64,61 C67,63 66,67 62,73 C56,79 48,75 46,70 Z" />
-          <path d="M28,100 C22,95 16,87 19,81 C21,78 25,78 29,83 C34,88 33,95 28,100 Z" fill="none" />
-        </svg>
+      {/* Decorative Botanical Branch (flower.webp) background on the bottom right */}
+      <div className="absolute right-0 bottom-0 w-48 h-72 opacity-[0.06] pointer-events-none select-none z-0">
+        <Image
+          src="/flower.webp"
+          alt="Botanical flower decoration"
+          fill
+          className="object-contain object-right-bottom filter brightness-0"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 relative z-10 border-b border-[#C5A880]/30 pb-12">
