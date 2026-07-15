@@ -12,6 +12,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 w-full bg-[#FAF6F0]/92 backdrop-blur-md z-50 shadow-[0_1px_0_rgba(197,168,128,0.24)]">
+      {/* Background texture overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: "url('/bg.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+
       {/* Top Utility Bar */}
       <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium relative z-10">
         <span className="truncate">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
