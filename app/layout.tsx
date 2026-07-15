@@ -16,6 +16,8 @@ const lora = Lora({
   style: ["normal", "italic"],
 });
 
+import Preloader from "../components/Preloader";
+
 export const metadata: Metadata = {
   title: "Literature Edit | Asma Khan's Literary Studio",
   description: "A literary studio dedicated to thoughtful teaching, editorial excellence, and academic mentorship. For readers, writers, and thinkers.",
@@ -32,6 +34,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FAF6F0] text-[#2E2522] selection:bg-[#9E3E26] selection:text-white">
+        <Preloader />
         {children}
       </body>
     </html>
