@@ -15,7 +15,7 @@ export default function FeaturedProgrammes() {
       // Book stack icon
       icon: (
         <svg
-          className="w-10 h-10 text-[#9E3E26]"
+          className="w-14 h-14 text-[#9E3E26]"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -39,7 +39,7 @@ export default function FeaturedProgrammes() {
       // Inkwell and Quill icon
       icon: (
         <svg
-          className="w-10 h-10 text-[#9E3E26]"
+          className="w-14 h-14 text-[#9E3E26]"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -64,7 +64,7 @@ export default function FeaturedProgrammes() {
       // University/Pantheon Classical Pillars icon
       icon: (
         <svg
-          className="w-10 h-10 text-[#9E3E26]"
+          className="w-14 h-14 text-[#9E3E26]"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -91,7 +91,7 @@ export default function FeaturedProgrammes() {
       // Magnifying glass over paper/book icon
       icon: (
         <svg
-          className="w-10 h-10 text-[#9E3E26]"
+          className="w-14 h-14 text-[#9E3E26]"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -144,8 +144,8 @@ export default function FeaturedProgrammes() {
                 : "border-b border-[#C5A880]/20 md:border-b-0"
             }`}
           >
-            {/* Styled Icon Wrapper */}
-            <div className="mb-6 p-4 rounded-full bg-[#FCFAF7] border border-[#C5A880]/20 group-hover:border-[#9E3E26]/40 transition-colors duration-300">
+            {/* Icon Wrapper (removed background circle) */}
+            <div className="mb-6 text-[#9E3E26] transition-transform duration-300 group-hover:scale-105">
               {prog.icon}
             </div>
 
