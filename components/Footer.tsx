@@ -1,6 +1,12 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import {
+  legalFooterLinks,
+  programmeFooterLinks,
+  quickFooterLinks,
+} from "../data/site";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -83,12 +89,11 @@ export default function Footer() {
             Quick Links
           </span>
           <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">About</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Programmes</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Editorial Services</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Resources</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Journal</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Contact</a>
+            {quickFooterLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-[#9E3E26] transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -98,11 +103,11 @@ export default function Footer() {
             Programmes
           </span>
           <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">IGCSE English</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">IB English</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Literature in English</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">Academic Writing</a>
-            <a href="#" className="hover:text-[#9E3E26] transition-colors">University Mentorship</a>
+            {programmeFooterLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-[#9E3E26] transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -129,9 +134,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-8 text-xs sm:text-[13px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
         <p>&copy; {currentYear} Literature Edit. All rights reserved.</p>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-[#9E3E26] transition-colors">Privacy Policy</a>
-          <span>|</span>
-          <a href="#" className="hover:text-[#9E3E26] transition-colors">Terms of Service</a>
+          {legalFooterLinks.map((link, index) => (
+            <React.Fragment key={link.href}>
+              {index > 0 ? <span>|</span> : null}
+              <Link href={link.href} className="hover:text-[#9E3E26] transition-colors">
+                {link.label}
+              </Link>
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </footer>

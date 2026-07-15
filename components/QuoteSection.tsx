@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ScrollReveal from "./ScrollReveal";
 
 export default function QuoteSection() {
   return (
@@ -38,7 +39,7 @@ export default function QuoteSection() {
         </svg>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+      <ScrollReveal className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
         {/* Quote Mark Icon */}
         <span className="font-display text-6xl text-[#C5A880] select-none leading-none opacity-80 mb-2">
           &ldquo;
@@ -53,7 +54,7 @@ export default function QuoteSection() {
         <cite className="font-display text-[10px] tracking-[0.3em] text-[#C5A880] not-italic mt-6 font-semibold uppercase block">
           &mdash; Asma Khan
         </cite>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

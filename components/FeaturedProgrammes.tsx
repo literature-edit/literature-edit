@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
+import SectionHeading from "./SectionHeading";
 
 export default function FeaturedProgrammes() {
   const programmes = [
@@ -8,7 +11,7 @@ export default function FeaturedProgrammes() {
       title: "CAMBRIDGE & IB ENGLISH",
       description:
         "Expert guidance for IGCSE, IB Language & Literature, Literature in English and more.",
-      link: "#",
+      link: "/programmes",
       // Book stack icon
       icon: (
         <svg
@@ -32,7 +35,7 @@ export default function FeaturedProgrammes() {
       title: "EDITORIAL SERVICES",
       description:
         "Developmental editing, proofreading, content review and editorial support for writers and publishers.",
-      link: "#",
+      link: "/editorial-services",
       // Inkwell and Quill icon
       icon: (
         <svg
@@ -57,7 +60,7 @@ export default function FeaturedProgrammes() {
       title: "UNIVERSITY APPLICATIONS",
       description:
         "Personal statements, academic essays, interviews and overall application strategy.",
-      link: "#",
+      link: "/university-mentorship",
       // University/Pantheon Classical Pillars icon
       icon: (
         <svg
@@ -84,7 +87,7 @@ export default function FeaturedProgrammes() {
       title: "RESEARCH & ACADEMIC WRITING",
       description:
         "Research support, essay mentorship and academic writing for school and university students.",
-      link: "#",
+      link: "/academic-writing",
       // Magnifying glass over paper/book icon
       icon: (
         <svg
@@ -110,26 +113,20 @@ export default function FeaturedProgrammes() {
   return (
     <section id="programmes" className="w-full bg-[#FAF6F0] py-20 px-6 sm:px-12 max-w-7xl mx-auto">
       {/* Title */}
-      <div className="flex flex-col items-center mb-16">
-        <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
-          What We Offer
-        </span>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
-          FEATURED PROGRAMMES
-        </h2>
-        {/* Diamond Divider */}
-        <div className="flex items-center gap-3 mt-4 w-full justify-center">
-          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-          <div className="w-1.5 h-1.5 bg-[#9E3E26] rotate-45" />
-          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-        </div>
+      <div className="mb-16">
+        <SectionHeading
+          eyebrow="What We Offer"
+          title="FEATURED PROGRAMMES"
+          description="Carefully structured support for students, applicants, and writers who want rigour with a human pulse."
+        />
       </div>
 
       {/* Grid Layout with vertical borders on desktop */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-y border-[#C5A880]/30 py-8 lg:py-4">
         {programmes.map((prog, index) => (
-          <div
+          <ScrollReveal
             key={prog.title}
+            delay={index * 90}
             className={`flex flex-col items-center text-center px-6 py-10 lg:py-8 group transition-all duration-300 hover:bg-[#FCFAF7] ${
               // Vertical dividers for desktop (index 0, 1, 2 have border-right)
               index < 3
@@ -163,7 +160,7 @@ export default function FeaturedProgrammes() {
             </p>
 
             {/* Link */}
-            <a
+            <Link
               href={prog.link}
               className="font-display text-[9px] tracking-[0.2em] font-semibold text-[#2E2522]/90 hover:text-[#9E3E26] transition-colors group/link uppercase flex items-center gap-1.5"
             >
@@ -171,8 +168,8 @@ export default function FeaturedProgrammes() {
               <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
                 →
               </span>
-            </a>
-          </div>
+            </Link>
+          </ScrollReveal>
         ))}
       </div>
     </section>

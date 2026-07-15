@@ -2,6 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
+import SectionHeading from "./SectionHeading";
 
 export default function FromDesk() {
   const articles = [
@@ -10,51 +13,42 @@ export default function FromDesk() {
       title: "Why We Still Read Literature",
       excerpt: "On the enduring relevance of stories in an age of speed.",
       image: "/desk-essay.png",
-      link: "#",
+      link: "/journal",
     },
     {
       label: "READING LIST",
       title: "Books That Stay With You",
       excerpt: "A curated list of timeless reads across genres.",
       image: "/desk-books.png",
-      link: "#",
+      link: "/resources",
     },
     {
       label: "STUDIO NOTE",
       title: "On Writing with Honesty",
       excerpt: "A note on voice, vulnerability and the writing process.",
       image: "/desk-studio.png",
-      link: "#",
+      link: "/journal",
     },
   ];
 
   return (
     <section className="w-full bg-[#FAF6F0] py-20 px-6 sm:px-12 max-w-7xl mx-auto">
       {/* Section Title */}
-      <div className="flex flex-col items-center mb-16">
-        <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
-          The Journal
-        </span>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
-          FROM THE LITERARY DESK
-        </h2>
-        <p className="font-serif-body text-[13px] italic text-[#2E2522]/70 mt-2 text-center">
-          Reflections, reading lists and essays from the studio.
-        </p>
-        {/* Diamond Divider */}
-        <div className="flex items-center gap-3 mt-4 w-full justify-center">
-          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-          <div className="w-1.5 h-1.5 bg-[#9E3E26] rotate-45" />
-          <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-        </div>
+      <div className="mb-16">
+        <SectionHeading
+          eyebrow="The Journal"
+          title="FROM THE LITERARY DESK"
+          description="Reflections, reading lists and essays from the studio."
+        />
       </div>
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-        {articles.map((art) => (
-          <article key={art.title} className="flex flex-col group cursor-pointer">
+        {articles.map((art, index) => (
+          <ScrollReveal key={art.title} delay={index * 110}>
+            <article className="flex flex-col group cursor-pointer">
             {/* Card Image */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden shadow-sm mb-5 bg-[#FAF6F0] border border-[#C5A880]/20">
+            <div className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_18px_50px_rgba(46,37,34,0.09)] mb-5 bg-[#FAF6F0] border border-[#C5A880]/20">
               <Image
                 src={art.image}
                 alt={art.title}
@@ -81,7 +75,7 @@ export default function FromDesk() {
 
             {/* Read Link */}
             <div>
-              <a
+              <Link
                 href={art.link}
                 className="inline-flex items-center gap-1.5 font-display text-[9px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] uppercase group/link"
               >
@@ -89,9 +83,10 @@ export default function FromDesk() {
                 <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
                   →
                 </span>
-              </a>
+              </Link>
             </div>
           </article>
+          </ScrollReveal>
         ))}
       </div>
     </section>

@@ -1,26 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { mainNavLinks } from "../data/site";
 import Logo from "./Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems = [
-    { label: "HOME", href: "#", active: true },
-    { label: "ABOUT", href: "#" },
-    { label: "PROGRAMMES", href: "#" },
-    { label: "EDITORIAL SERVICES", href: "#" },
-    { label: "RESOURCES", href: "#" },
-    { label: "JOURNAL", href: "#" },
-    { label: "CONTACT", href: "#" },
-  ];
+  const pathname = usePathname();
 
   return (
-    <header className="w-full bg-[#FAF6F0] z-50">
+    <header className="sticky top-0 w-full bg-[#FAF6F0]/92 backdrop-blur-md z-50 shadow-[0_1px_0_rgba(197,168,128,0.24)]">
       {/* Top Utility Bar */}
-      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.2em] font-display font-medium">
-        <span>A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
+      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium">
+        <span className="truncate">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
         
         {/* Social Icons */}
         <div className="flex items-center gap-4">
@@ -66,9 +60,9 @@ export default function Navbar() {
       {/* Main Navigation Bar */}
       <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative">
         {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
-        <a href="#" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
-          <Logo className="w-24 h-36 sm:w-36 sm:h-54" />
-        </a>
+        <Link href="/" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
+          <Logo className="w-24 h-36 sm:w-36 sm:h-54" imageClassName="-translate-y-3" />
+        </Link>
 
         {/* Spacer to reserve space for the absolute logo */}
         <div className="w-24 sm:w-36 flex-shrink-0" />
@@ -76,24 +70,27 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav 
           className="hidden lg:flex items-center gap-8 xl:gap-10"
-          style={{ position: "relative", top: "16px" }}
+          style={{ position: "relative", top: "1px" }}
         >
-          {menuItems.map((item) => (
-            <a
+          {mainNavLinks.map((item) => {
+            const active = pathname === item.href;
+
+            return (
+            <Link
               key={item.label}
               href={item.href}
               className={`font-display text-xs tracking-[0.2em] font-bold relative py-2 transition-colors duration-300 ${
-                item.active
+                active
                   ? "text-[#9E3E26]"
                   : "text-[#2E2522]/80 hover:text-[#9E3E26]"
               }`}
             >
               {item.label}
-              {item.active && (
+              {active && (
                 <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9E3E26]" />
               )}
-            </a>
-          ))}
+            </Link>
+          )})}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -135,20 +132,23 @@ export default function Navbar() {
         }`}
       >
         <nav className="flex flex-col px-8 py-4 gap-4 border-t border-[#C5A880]/20">
-          {menuItems.map((item) => (
-            <a
+          {mainNavLinks.map((item) => {
+            const active = pathname === item.href;
+
+            return (
+            <Link
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
               className={`font-display text-[13px] sm:text-sm tracking-[0.2em] font-bold py-2 transition-colors ${
-                item.active
+                active
                   ? "text-[#9E3E26] border-l-2 border-[#9E3E26] pl-3"
                   : "text-[#2E2522]/80 hover:text-[#9E3E26] pl-3"
               }`}
             >
               {item.label}
-            </a>
-          ))}
+            </Link>
+          )})}
         </nav>
       </div>
     </header>

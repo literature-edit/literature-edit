@@ -5,9 +5,13 @@ import Image from "next/image";
 
 interface LogoProps {
   className?: string;
+  imageClassName?: string;
 }
 
-export default function Logo({ className = "w-20 h-30 sm:w-24 sm:h-36" }: LogoProps) {
+export default function Logo({
+  className = "w-20 h-30 sm:w-24 sm:h-36",
+  imageClassName = "",
+}: LogoProps) {
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
       <Image
@@ -15,7 +19,7 @@ export default function Logo({ className = "w-20 h-30 sm:w-24 sm:h-36" }: LogoPr
         alt="Asma Khan's Literature Edit Logo"
         fill
         priority
-        className="object-contain object-left"
+        className={`object-contain object-left ${imageClassName}`}
       />
     </div>
   );

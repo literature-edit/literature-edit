@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import ScrollReveal from "./ScrollReveal";
+import SectionHeading from "./SectionHeading";
 
 export default function WhyLiteratureEdit() {
   const points = [
@@ -89,26 +91,20 @@ export default function WhyLiteratureEdit() {
     <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/20 py-20 px-6 sm:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <div className="flex flex-col items-center mb-16">
-          <span className="font-display text-[10px] tracking-[0.25em] text-[#9E3E26] uppercase font-semibold">
-            Our Core Values
-          </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#9E3E26] mt-2 tracking-[0.1em] text-center">
-            WHY LITERATURE EDIT?
-          </h2>
-          {/* Diamond Divider */}
-          <div className="flex items-center gap-3 mt-4 w-full justify-center">
-            <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-            <div className="w-1.5 h-1.5 bg-[#9E3E26] rotate-45" />
-            <div className="h-[0.75px] w-8 bg-[#C5A880]" />
-          </div>
+        <div className="mb-16">
+          <SectionHeading
+            eyebrow="Our Core Values"
+            title="WHY LITERATURE EDIT?"
+            description="A studio shaped by precision, empathy, and the belief that strong writing begins with better attention."
+          />
         </div>
 
         {/* 4 Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {points.map((pt, index) => (
-            <div
+            <ScrollReveal
               key={pt.title}
+              delay={index * 85}
               className={`flex flex-col items-center text-center px-4 py-6 group ${
                 index < 3
                   ? "lg:border-r lg:border-[#C5A880]/20"
@@ -131,7 +127,7 @@ export default function WhyLiteratureEdit() {
               <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.6] text-[#2E2522]/80 max-w-[220px]">
                 {pt.description}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
