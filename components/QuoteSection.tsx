@@ -7,13 +7,14 @@ import ScrollReveal from "./ScrollReveal";
 export default function QuoteSection() {
   return (
     <section className="relative w-full bg-[#9E3E26] text-[#FAF6F0] py-20 px-6 sm:px-12 overflow-hidden border-y border-[#FAF6F0]/10">
-      {/* Decorative Book Illustration watermark on the bottom right */}
-      <div className="absolute right-0 bottom-0 w-[420px] h-[280px] opacity-20 pointer-events-none select-none z-0">
+      {/* Background books.webp cover image */}
+      <div className="absolute inset-0 w-full h-full opacity-15 pointer-events-none select-none z-0">
         <Image
           src="/books.webp"
-          alt="Books decoration"
+          alt="Books background decoration"
           fill
-          className="object-contain object-right-bottom mix-blend-multiply"
+          priority
+          className="object-cover object-center mix-blend-multiply"
         />
       </div>
 
