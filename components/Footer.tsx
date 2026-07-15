@@ -33,9 +33,9 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 relative z-10 border-b border-[#C5A880]/30 pb-12">
         {/* Column 1: Logo & Bio */}
-        <div className="lg:col-span-4 flex flex-col items-start relative pt-24 lg:pt-28">
-          <div className="absolute left-0 -top-12 z-20">
-            <Logo className="w-24 h-36 sm:w-28 sm:h-42" />
+        <div className="lg:col-span-4 flex flex-col items-start relative pt-32 lg:pt-36">
+          <div className="absolute left-0 -top-12 lg:-top-16 z-20">
+            <Logo className="w-28 h-42 sm:w-32 sm:h-48" />
           </div>
           <span className="font-display text-sm font-semibold tracking-wider text-[#9E3E26]">
             LITERATURE EDIT
