@@ -14,7 +14,7 @@ export default function QuoteSection() {
           alt="Books background decoration"
           fill
           priority
-          className="object-contain object-right mix-blend-multiply"
+          className="object-contain object-right-bottom mix-blend-multiply"
         />
       </div>
 
