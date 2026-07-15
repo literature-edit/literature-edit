@@ -70,13 +70,13 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative z-10">
-        {/* Logo positioned absolutely to fit within the navbar height */}
-        <Link href="/" className="absolute left-6 sm:left-12 top-1/2 -translate-y-1/2 z-20 transition-opacity hover:opacity-90">
-          <Logo className="w-10 h-15 sm:w-12 sm:h-18" imageClassName="" />
+        {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
+        <Link href="/" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
+          <Logo className="w-24 h-36 sm:w-36 sm:h-54" imageClassName="-translate-y-3" />
         </Link>
 
         {/* Spacer to reserve space for the absolute logo */}
-        <div className="w-10 sm:w-12 flex-shrink-0" />
+        <div className="w-24 sm:w-36 flex-shrink-0" />
 
         {/* Desktop Menu */}
         <nav 
