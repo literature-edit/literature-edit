@@ -12,8 +12,19 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 w-full bg-[#FAF6F0]/92 backdrop-blur-md z-50 shadow-[0_1px_0_rgba(197,168,128,0.24)]">
+      {/* Background texture overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-15"
+        style={{
+          backgroundImage: "url('/bg.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      />
+
       {/* Top Utility Bar */}
-      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium">
+      <div className="w-full bg-[#9E3E26] text-[#FAF6F0] py-2 px-6 sm:px-12 flex justify-between items-center text-[10px] tracking-[0.18em] font-display font-medium relative z-10">
         <span className="truncate">A LITERARY STUDIO FOR READERS, WRITERS &amp; THINKERS.</span>
         
         {/* Social Icons */}
@@ -58,7 +69,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative">
+      <div className="w-full px-6 sm:px-12 lg:px-16 flex justify-between items-center h-16 sm:h-20 relative z-10">
         {/* Logo positioned absolutely to allow overlap without stretching the navbar */}
         <Link href="/" className="absolute left-6 sm:left-12 -top-2 sm:-top-6 z-20 transition-opacity hover:opacity-90">
           <Logo className="w-24 h-36 sm:w-36 sm:h-54" imageClassName="-translate-y-3" />
@@ -82,7 +93,7 @@ export default function Navbar() {
               className={`font-display text-xs tracking-[0.2em] font-bold relative py-2 transition-colors duration-300 ${
                 active
                   ? "text-[#9E3E26]"
-                  : "text-[#2E2522]/80 hover:text-[#9E3E26]"
+                  : "text-[#2E2522] hover:text-[#9E3E26]"
               }`}
             >
               {item.label}
@@ -127,7 +138,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out bg-[#FAF6F0] overflow-hidden ${
+        className={`lg:hidden transition-all duration-300 ease-in-out bg-[#FAF6F0]/92 overflow-hidden ${
           isOpen ? "max-h-[450px] border-b border-[#C5A880]/40" : "max-h-0"
         }`}
       >
@@ -143,7 +154,7 @@ export default function Navbar() {
               className={`font-display text-[13px] sm:text-sm tracking-[0.2em] font-bold py-2 transition-colors ${
                 active
                   ? "text-[#9E3E26] border-l-2 border-[#9E3E26] pl-3"
-                  : "text-[#2E2522]/80 hover:text-[#9E3E26] pl-3"
+                  : "text-[#2E2522] hover:text-[#9E3E26] pl-3"
               }`}
             >
               {item.label}
