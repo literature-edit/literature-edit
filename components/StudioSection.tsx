@@ -50,8 +50,8 @@ export default function StudioSection() {
             align="left"
           />
 
-          <div className="font-serif-body text-[#2E2522]/90 text-[15px] sm:text-base leading-[1.75] space-y-6 max-w-xl">
-            <p className="font-semibold text-[#9E3E26]/90">
+          <div className="font-serif-body text-[#2E2522] font-medium text-[15px] sm:text-base leading-[1.75] space-y-6 max-w-xl">
+            <p className="font-bold text-[#9E3E26]">
               Literature Edit is where ideas are explored, questions are deepened, and voices are shaped.
             </p>
             <p>
@@ -65,7 +65,7 @@ export default function StudioSection() {
           <div className="mt-8">
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 font-display text-[10px] tracking-[0.2em] font-semibold text-[#9E3E26] hover:text-[#85321E] transition-colors group uppercase"
+              className="inline-flex items-center gap-2 font-display text-[11px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] transition-colors group uppercase"
             >
               Learn more about Asma
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">

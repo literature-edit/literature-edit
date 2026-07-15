@@ -155,14 +155,14 @@ export default function FeaturedProgrammes() {
             </h3>
 
             {/* Description */}
-            <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.65] text-[#2E2522]/80 mt-4 mb-8 flex-grow max-w-[240px]">
+            <p className="font-serif-body text-[14px] sm:text-[15px] leading-[1.65] text-[#2E2522] font-medium mt-4 mb-8 flex-grow max-w-[240px]">
               {prog.description}
             </p>
 
             {/* Link */}
             <Link
               href={prog.link}
-              className="font-display text-[9px] tracking-[0.2em] font-semibold text-[#2E2522]/90 hover:text-[#9E3E26] transition-colors group/link uppercase flex items-center gap-1.5"
+              className="font-display text-[10px] tracking-[0.2em] font-bold text-[#2E2522] hover:text-[#9E3E26] transition-colors group/link uppercase flex items-center gap-1.5"
             >
               Learn More
               <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">

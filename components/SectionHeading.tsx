@@ -22,7 +22,7 @@ export default function SectionHeading({
         isCenter ? "items-center text-center" : "items-start text-left"
       }`}
     >
-      <span className="font-display text-[10px] tracking-[0.24em] text-[#9E3E26] uppercase font-semibold">
+      <span className="font-display text-[11px] tracking-[0.24em] text-[#9E3E26] uppercase font-bold">
         {eyebrow}
       </span>
       <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#9E3E26] mt-2 tracking-[0.07em] leading-tight">

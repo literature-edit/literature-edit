@@ -30,7 +30,7 @@ export default function QuoteSection() {
         </blockquote>
 
         {/* Author Credit */}
-        <cite className="font-display text-[10px] tracking-[0.3em] text-[#C5A880] not-italic mt-6 font-semibold uppercase block">
+        <cite className="font-display text-[11px] tracking-[0.3em] text-[#C5A880] not-italic mt-6 font-bold uppercase block">
           &mdash; Asma Khan
         </cite>
       </ScrollReveal>

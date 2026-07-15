@@ -59,7 +59,7 @@ export default function FromDesk() {
             </div>
 
             {/* Label */}
-            <span className="font-display text-[9px] font-semibold tracking-[0.2em] text-[#9E3E26] mb-2 uppercase">
+            <span className="font-display text-[10px] font-bold tracking-[0.2em] text-[#9E3E26] mb-2 uppercase">
               {art.label}
             </span>
 
@@ -69,7 +69,7 @@ export default function FromDesk() {
             </h3>
 
             {/* Excerpt */}
-            <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/80 mb-5 flex-grow">
+            <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522] font-medium mb-5 flex-grow">
               {art.excerpt}
             </p>
 
@@ -77,7 +77,7 @@ export default function FromDesk() {
             <div>
               <Link
                 href={art.link}
-                className="inline-flex items-center gap-1.5 font-display text-[9px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] uppercase group/link"
+                className="inline-flex items-center gap-1.5 font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] uppercase group/link"
               >
                 Read More
                 <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
