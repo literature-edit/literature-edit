@@ -9,7 +9,15 @@ type PageProps = {
 
 export function generateStaticParams() {
   return pages
-    .filter((page) => page.slug !== "about" && page.slug !== "programmes")
+    .filter(
+      (page) =>
+        page.slug !== "about" &&
+        page.slug !== "programmes" &&
+        page.slug !== "editorial-services" &&
+        page.slug !== "resources" &&
+        page.slug !== "journal" &&
+        page.slug !== "contact"
+    )
     .map((page) => ({ slug: page.slug }));
 }
 
