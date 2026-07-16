@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
@@ -169,12 +167,6 @@ const TeacherCard = ({ name, role, image, description, isCenter = false }: Teach
 };
 
 export default function AboutPage() {
-  const handleScrollDown = () => {
-    const nextSec = document.getElementById("learners-grid");
-    if (nextSec) {
-      nextSec.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#FAF6F0] overflow-x-hidden">
@@ -209,12 +201,12 @@ export default function AboutPage() {
                 From close reading to critical expression, our students discover depth, clarity, and voice - empowered to think beyond the classroom.
               </p>
 
-              <button
-                onClick={handleScrollDown}
+              <a
+                href="#learners-grid"
                 className="mt-10 inline-flex items-center justify-center px-8 py-3.5 bg-[#FAF6F0] hover:bg-[#C5A880] hover:text-[#2E2522] text-xs tracking-[0.2em] font-display font-bold text-[#9E3E26] uppercase transition-all duration-300 rounded shadow-sm"
               >
                 See More
-              </button>
+              </a>
             </ScrollReveal>
           </div>
         </section>

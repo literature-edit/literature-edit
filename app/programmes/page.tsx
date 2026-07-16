@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -90,12 +88,6 @@ const ProgrammeCard = ({ title, subtitle, image, link, features, index }: Progra
 };
 
 export default function ProgrammesPage() {
-  const handleScrollDown = () => {
-    const nextSec = document.getElementById("programmes-grid");
-    if (nextSec) {
-      nextSec.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const academicProgrammes = [
     {
@@ -188,12 +180,12 @@ export default function ProgrammesPage() {
                 Structured pathways designed to combine analytical rigour, exam strategy, and the development of authentic voice.
               </p>
 
-              <button
-                onClick={handleScrollDown}
+              <a
+                href="#programmes-grid"
                 className="mt-10 inline-flex items-center justify-center px-8 py-3.5 bg-[#FAF6F0] hover:bg-[#C5A880] hover:text-[#2E2522] text-xs tracking-[0.2em] font-display font-bold text-[#9E3E26] uppercase transition-all duration-300 rounded shadow-sm"
               >
                 Explore Pathways
-              </button>
+              </a>
             </ScrollReveal>
           </div>
         </section>
