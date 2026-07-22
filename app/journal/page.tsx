@@ -92,7 +92,15 @@ const JournalCard = ({ category, title, description, image, points, index }: Jou
   );
 };
 
-export default function JournalPage() {
+import { getPageData } from "../../lib/db-pages";
+
+export default async function JournalPage() {
+  const page = await getPageData("journal");
+  const displayTitle = page?.title || "Journal";
+  const displayIntro = page?.intro || "Essays, notes, and reading reflections from the studio. The journal gathers reflections on literature, teaching, writing, and habits that make intellectual life richer.";
+  const displayImage = page?.image || "/desk-essay.png";
+  const displayImageAlt = page?.imageAlt || "Handwritten notes beside a literary book in a warm library room";
+
   const journalList = [
     {
       category: "Essay",
@@ -142,8 +150,8 @@ export default function JournalPage() {
           {/* Backdrop Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/desk-essay.png"
-              alt="Handwritten notes beside a literary book in a warm library room"
+              src={displayImage}
+              alt={displayImageAlt}
               fill
               priority
               className="object-cover object-center"
@@ -156,13 +164,13 @@ export default function JournalPage() {
           <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
             <ScrollReveal>
               <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#FAF6F0] leading-[1.05] tracking-[0.06em] uppercase">
-                Journal
+                {displayTitle}
               </h1>
 
               <div className="h-px w-24 bg-[#C5A880] mx-auto my-6" />
 
               <p className="font-serif-body text-[#FAF6F0]/90 text-[15px] sm:text-lg leading-[1.8] max-w-2xl font-medium">
-                Essays, notes, and reading reflections from the studio. The journal gathers reflections on literature, teaching, writing, and habits that make intellectual life richer.
+                {displayIntro}
               </p>
 
               <a

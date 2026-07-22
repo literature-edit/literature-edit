@@ -69,18 +69,26 @@ const InfoCard = ({ title, subtitle, description, icon, index }: InfoCardProps) 
   );
 };
 
-export default function ContactPage() {
+import { getPageData } from "../../lib/db-pages";
+
+export default async function ContactPage() {
+  const page = await getPageData("contact");
+  const displayTitle = page?.title || "Contact";
+  const displayIntro = page?.intro || "Tell us what you are reading, writing, or preparing for. Reach out for academic enquiries, editing drafts, statements, or dynamic consultations.";
+  const displayImage = page?.image || "/vintage-studio.png";
+  const displayImageAlt = page?.imageAlt || "Warm study room with a typewriter and bookshelves";
+
   const contactInfoList = [
     {
       title: "Email Inquiry",
-      subtitle: "hello@literatureedit.com",
+      subtitle: "asmakhan7783@gmail.com",
       description: "Share the manuscript size, deadlines, learner goals, or specific texts you would like to review.",
       icon: "/personalised-mentorship.webp",
     },
     {
-      title: "1-on-1 Consultation",
-      subtitle: "Diagnostic Call",
-      description: "Schedule a brief call to align on syllabus objectives, manuscript pacing, and match support formats.",
+      title: "Direct Contact / WhatsApp",
+      subtitle: "+92-8369663562",
+      description: "Reach out via call or message for quick programme queries or consultation scheduling.",
       icon: "/academic-excellence.webp",
     },
     {
@@ -101,8 +109,8 @@ export default function ContactPage() {
           {/* Backdrop Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/vintage-studio.png"
-              alt="Warm study room with a typewriter and bookshelves"
+              src={displayImage}
+              alt={displayImageAlt}
               fill
               priority
               className="object-cover object-center"
@@ -115,13 +123,13 @@ export default function ContactPage() {
           <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
             <ScrollReveal>
               <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#FAF6F0] leading-[1.05] tracking-[0.06em] uppercase">
-                Contact
+                {displayTitle}
               </h1>
 
               <div className="h-px w-24 bg-[#C5A880] mx-auto my-6" />
 
               <p className="font-serif-body text-[#FAF6F0]/90 text-[15px] sm:text-lg leading-[1.8] max-w-2xl font-medium">
-                Tell us what you are reading, writing, or preparing for. Reach out for academic enquiries, editing drafts, statements, or dynamic consultations.
+                {displayIntro}
               </p>
 
               <a

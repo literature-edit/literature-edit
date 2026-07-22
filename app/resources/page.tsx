@@ -91,7 +91,15 @@ const ResourceCard = ({ title, description, image, deliverables, index }: Resour
   );
 };
 
-export default function ResourcesPage() {
+import { getPageData } from "../../lib/db-pages";
+
+export default async function ResourcesPage() {
+  const page = await getPageData("resources");
+  const displayTitle = page?.title || "Resources";
+  const displayIntro = page?.intro || "A growing collection of reading lists, essay frameworks, revision prompts, application notes, and classroom-friendly guides.";
+  const displayImage = page?.image || "/desk-books.png";
+  const displayImageAlt = page?.imageAlt || "Books arranged elegantly on a writing desk";
+
   const resourcesList = [
     {
       title: "Curated Reading Lists",
@@ -138,8 +146,8 @@ export default function ResourcesPage() {
           {/* Backdrop Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/desk-books.png"
-              alt="Books arranged elegantly on a writing desk"
+              src={displayImage}
+              alt={displayImageAlt}
               fill
               priority
               className="object-cover object-center"
@@ -152,13 +160,13 @@ export default function ResourcesPage() {
           <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
             <ScrollReveal>
               <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#FAF6F0] leading-[1.05] tracking-[0.06em] uppercase">
-                Resources
+                {displayTitle}
               </h1>
 
               <div className="h-px w-24 bg-[#C5A880] mx-auto my-6" />
 
               <p className="font-serif-body text-[#FAF6F0]/90 text-[15px] sm:text-lg leading-[1.8] max-w-2xl font-medium">
-                A growing collection of reading lists, essay frameworks, revision prompts, application notes, and classroom-friendly guides.
+                {displayIntro}
               </p>
 
               <a

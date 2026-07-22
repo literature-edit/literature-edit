@@ -6,30 +6,40 @@ import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionHeading from "./SectionHeading";
 
-export default function FromDesk() {
-  const articles = [
+interface FromDeskProps {
+  title?: string;
+  intro?: string;
+  cards?: { label: string; title: string; excerpt: string; image?: string; link?: string }[];
+}
+
+export default function FromDesk({ title, intro, cards }: FromDeskProps) {
+  const displayTitle = title || "FROM THE LITERARY DESK";
+  const displayIntro = intro || "A space for essays, reflections, reading recommendations, and conversations about literature, language, and culture.";
+  const defaultArticles = [
     {
-      label: "ESSAY",
-      title: "Why We Still Read Literature",
-      excerpt: "On the enduring relevance of stories in an age of speed.",
+      label: "ESSAYS",
+      title: "Thoughtful Explorations",
+      excerpt: "Thoughtful explorations of literary works, contemporary issues, and the craft of writing.",
       image: "/desk-essay.png",
       link: "/journal",
     },
     {
-      label: "READING LIST",
-      title: "Books That Stay With You",
-      excerpt: "A curated list of timeless reads across genres.",
+      label: "READING LISTS",
+      title: "Curated Recommendations",
+      excerpt: "Curated recommendations for readers at every stage—from classics to contemporary voices.",
       image: "/desk-books.png",
       link: "/resources",
     },
     {
-      label: "STUDIO NOTE",
-      title: "On Writing with Honesty",
-      excerpt: "A note on voice, vulnerability and the writing process.",
+      label: "STUDIO NOTES",
+      title: "Teaching & Research Reflections",
+      excerpt: "Observations from teaching, editing, and research, alongside reflections on books and learning.",
       image: "/desk-studio.png",
       link: "/journal",
     },
   ];
+
+  const articles = cards && cards.length > 0 ? cards : defaultArticles;
 
   return (
     <section className="w-full bg-[#FAF6F0] py-20 px-6 sm:px-12 max-w-7xl mx-auto">
@@ -37,8 +47,8 @@ export default function FromDesk() {
       <div className="mb-16">
         <SectionHeading
           eyebrow="The Journal"
-          title="FROM THE LITERARY DESK"
-          description="Reflections, reading lists and essays from the studio."
+          title={displayTitle}
+          description={displayIntro}
         />
       </div>
 
@@ -50,7 +60,7 @@ export default function FromDesk() {
             {/* Card Image */}
             <div className="relative w-full aspect-[4/3] overflow-hidden shadow-[0_18px_50px_rgba(46,37,34,0.09)] mb-5 bg-[#FAF6F0] border border-[#C5A880]/20 rounded-lg">
               <Image
-                src={art.image}
+                src={art.image || "/desk-essay.png"}
                 alt={art.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 30vw"
@@ -76,7 +86,7 @@ export default function FromDesk() {
             {/* Read Link */}
             <div>
               <Link
-                href={art.link}
+                href={art.link || "/journal"}
                 className="inline-flex items-center gap-1.5 font-display text-[10px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] uppercase group/link"
               >
                 Read More

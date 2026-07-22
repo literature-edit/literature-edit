@@ -37,8 +37,11 @@ export default function Footer() {
           <span className="font-display text-sm font-semibold tracking-wider text-[#9E3E26]">
             LITERATURE EDIT
           </span>
-          <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/80 mt-2 max-w-xs">
-            For Readers, Writers, Learners. Dedicated to thoughtful teaching, editorial excellence, and academic mentorship.
+          <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/90 font-medium mt-2 max-w-xs">
+            A Literary Studio for Readers, Writers &amp; Thinkers.
+          </p>
+          <p className="font-display text-[11px] font-bold tracking-wider text-[#9E3E26]/80 mt-1 uppercase max-w-xs">
+            IGCSE • IB • AS &amp; A Level • University Mentorship • Editorial Services
           </p>
 
           {/* Social Icons */}
@@ -70,7 +73,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="mailto:hello@literatureedit.com"
+              href="mailto:asmakhan7783@gmail.com"
               className="text-[#9E3E26] hover:text-[#85321E] transition-colors"
               aria-label="Email"
             >
@@ -85,11 +88,15 @@ export default function Footer() {
         {/* Column 2: Quick Links */}
         <div className="lg:col-span-2 flex flex-col">
           <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
-            Quick Links
+            Navigation
           </span>
-          <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
+          <nav className="flex flex-col gap-2.5 font-serif-body text-[14px] sm:text-[15px] font-medium text-[#2E2522]">
             {quickFooterLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-[#9E3E26] transition-colors">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-[#9E3E26] transition-colors duration-200"
+              >
                 {link.label}
               </Link>
             ))}
@@ -101,9 +108,13 @@ export default function Footer() {
           <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Programmes
           </span>
-          <nav className="flex flex-col gap-2.5 font-display text-[13px] sm:text-[14px] tracking-wider font-medium text-[#2E2522]/80">
+          <nav className="flex flex-col gap-2.5 font-serif-body text-[14px] sm:text-[15px] font-medium text-[#2E2522]">
             {programmeFooterLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-[#9E3E26] transition-colors">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-[#9E3E26] transition-colors duration-200"
+              >
                 {link.label}
               </Link>
             ))}
@@ -115,16 +126,20 @@ export default function Footer() {
           <span className="font-display text-xs sm:text-[13px] tracking-[0.2em] font-bold text-[#9E3E26] mb-4 uppercase">
             Contact
           </span>
-          <div className="flex flex-col gap-3 font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85">
-            <p>
-              <a
-                href="mailto:hello@literatureedit.com"
-                className="hover:text-[#9E3E26] transition-colors underline decoration-[#C5A880]/50 underline-offset-4"
-              >
-                hello@literatureedit.com
-              </a>
-            </p>
-            <p className="opacity-90">Mumbai, India</p>
+          <div className="flex flex-col font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/90 font-medium space-y-2">
+            <a
+              href="mailto:asmakhan7783@gmail.com"
+              className="hover:text-[#9E3E26] transition-colors underline decoration-[#C5A880]/50 underline-offset-4"
+            >
+              asmakhan7783@gmail.com
+            </a>
+            <a
+              href="tel:+928369663562"
+              className="hover:text-[#9E3E26] transition-colors"
+            >
+              +92-8369663562
+            </a>
+            <p className="opacity-90 pt-1">Mumbai, India</p>
           </div>
         </div>
       </div>

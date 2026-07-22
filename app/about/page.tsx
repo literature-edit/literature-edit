@@ -4,6 +4,8 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ScrollReveal from "../../components/ScrollReveal";
+import { getPageData } from "../../lib/db-pages";
+import { AudienceCard } from "../../data/site";
 
 // Gold hand-drawn style underline doodle
 const UnderlineScribble = () => (
@@ -22,64 +24,31 @@ const UnderlineScribble = () => (
 interface OrganicImageProps {
   src: string;
   alt: string;
-  index: number;
+  index?: number;
 }
 
-const OrganicImage = ({ src, alt, index }: OrganicImageProps) => {
-  // Dynamic shapes for morphing look
+const OrganicImage = ({ src, alt, index = 0 }: OrganicImageProps) => {
   const borderRadii = [
-    "60% 40% 65% 35% / 40% 60% 35% 65%", // blob 1
-    "40% 60% 35% 65% / 60% 40% 65% 35%", // blob 2
-    "55% 45% 60% 40% / 45% 55% 40% 60%", // blob 3
+    "60% 40% 65% 35% / 40% 60% 35% 65%",
+    "40% 60% 35% 65% / 60% 40% 65% 35%",
+    "55% 45% 60% 40% / 45% 55% 40% 60%",
   ];
 
   const currentRadius = borderRadii[index % borderRadii.length];
 
   return (
-    <div className="relative w-full max-w-[360px] md:max-w-[400px] aspect-square mx-auto group">
-      {/* Custom Vector Doodles */}
-      {index === 0 && (
-        <>
-          {/* Sparkle top-left */}
-          <svg className="absolute -top-6 -left-6 w-12 h-12 text-[#C5A880]/60 pointer-events-none select-none transition-transform duration-500 group-hover:rotate-12 group-hover:scale-105" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
-            <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5" strokeLinecap="round" />
-            <circle cx="12" cy="12" r="2" fill="currentColor" />
-          </svg>
-          {/* Scribble loop bottom-right */}
-          <svg className="absolute -bottom-8 -right-8 w-20 h-10 text-[#C5A880]/60 pointer-events-none select-none" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="1.25">
-            <path d="M10,25 Q30,5 50,25 T90,25 Q95,35 90,40 T70,30" strokeLinecap="round" />
-          </svg>
-        </>
-      )}
-
-      {index === 1 && (
-        <>
-          {/* Sparkle top-right */}
-          <svg className="absolute -top-6 -right-6 w-10 h-10 text-[#C5A880]/60 pointer-events-none select-none transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-105" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
-            <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5" strokeLinecap="round" />
-            <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-          </svg>
-          {/* Botanical branch bottom-left */}
-          <svg className="absolute -bottom-6 -left-6 w-16 h-16 text-[#C5A880]/60 pointer-events-none select-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 22C12 22 17 17 22 2" />
-            <path d="M12 14c1.5-2 3.5-3 5.5-2.5M8 18c1.5-1.5 3-2 4.5-1.5M16 10c1-1.5 2.5-2 4-1.5" />
-          </svg>
-        </>
-      )}
-
-      {index === 2 && (
-        <>
-          {/* Sparkle bottom-right */}
-          <svg className="absolute -bottom-6 -right-6 w-12 h-12 text-[#C5A880]/60 pointer-events-none select-none transition-transform duration-500 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25">
-            <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5" strokeLinecap="round" />
-            <circle cx="12" cy="12" r="2" fill="currentColor" />
-          </svg>
-          {/* Creative swirl top-left */}
-          <svg className="absolute -top-6 -left-6 w-16 h-10 text-[#C5A880]/60 pointer-events-none select-none" viewBox="0 0 80 50" fill="none" stroke="currentColor" strokeWidth="1.25">
-            <path d="M10,40 Q20,10 40,25 T70,10" strokeLinecap="round" />
-          </svg>
-        </>
-      )}
+    <div className="relative w-full max-w-[360px] md:max-w-[420px] aspect-square mx-auto group">
+      {/* Decorative Vector Sparkle */}
+      <svg
+        className="absolute -top-6 -left-6 w-12 h-12 text-[#C5A880]/60 pointer-events-none select-none transition-transform duration-500 group-hover:rotate-12 group-hover:scale-105"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.25"
+      >
+        <path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
+      </svg>
 
       {/* Floating offset frame */}
       <div
@@ -96,7 +65,7 @@ const OrganicImage = ({ src, alt, index }: OrganicImageProps) => {
           src={src}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 100vw, 400px"
+          sizes="(max-width: 768px) 100vw, 420px"
           className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
         />
       </div>
@@ -104,326 +73,340 @@ const OrganicImage = ({ src, alt, index }: OrganicImageProps) => {
   );
 };
 
-interface TeacherCardProps {
-  name: string;
-  role: string;
-  image: string;
-  description: string;
-  isCenter?: boolean;
-}
+export default async function AboutPage() {
+  const page = await getPageData("about");
 
-const TeacherCard = ({ name, role, image, description, isCenter = false }: TeacherCardProps) => {
-  return (
-    <ScrollReveal
-      delay={isCenter ? 120 : 60}
-      className={`relative flex flex-col items-center group w-full max-w-[340px] mx-auto ${
-        isCenter ? "lg:-translate-y-6 z-20" : "z-10"
-      }`}
-    >
-      {/* Layered offset 3D block */}
-      <div
-        className={`absolute inset-0 bg-[#C5A880]/10 border border-[#C5A880]/20 rounded-lg transition-transform duration-500 group-hover:translate-x-1.5 group-hover:translate-y-1.5 ${
-          isCenter ? "translate-x-2 translate-y-2 border-[#9E3E26]/20 bg-[#9E3E26]/5" : "translate-x-1 translate-y-1"
-        }`}
-      />
+  // Section 1: Meet the Founder
+  const founderTitle: string = page?.founderTitle || page?.title || "Meet Asma Khan";
+  const founderSub: string = page?.founderSub || "Founder & Lead Mentor";
+  const founderBio: string[] = page?.founderBio || [
+    "Literature Edit was founded by Asma Khan, an English Language and Literature educator, editor, and researcher with a passion for thoughtful learning and meaningful writing.",
+    "With experience spanning international curricula, academic mentoring, publishing, and editorial work, she has worked with students, researchers, and writers across different stages of their academic and creative journeys. Her teaching combines close reading, critical inquiry, and structured writing to help learners develop confidence, clarity, and intellectual independence.",
+    "What began as a commitment to helping students move beyond memorisation has grown into a literary studio dedicated to nurturing readers, writers, and thinkers.",
+  ];
+  const founderImage: string = page?.founderImage || page?.image || "/asma-khan.png";
 
-      {/* Main profile card */}
-      <div className="relative w-full bg-[#FCFAF7] border border-[#C5A880]/25 rounded-lg p-6 flex flex-col items-center shadow-sm z-10 transition-colors duration-300 group-hover:border-[#9E3E26]/30">
-        {/* Headshot */}
-        <div className="relative w-36 h-36 sm:w-40 sm:h-40 overflow-hidden rounded-full border-2 border-[#C5A880]/40 mb-5">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            sizes="160px"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+  // Section 2: The Story Behind Literature Edit
+  const storyEyebrow: string = page?.storyEyebrow || "The Story Behind Literature Edit";
+  const storyTitle: string = page?.storyTitle || "Why Literature Edit?";
+  const storyParagraphs: string[] = page?.storyParagraphs || [
+    "Literature Edit was created from a simple belief: that literature is more than an academic subject—it is a way of understanding people, ideas, and the world around us.",
+    "In a learning environment often focused on examinations and model answers, Literature Edit offers a different approach. Here, students are encouraged to question, analyse, interpret, and write with originality. Every lesson is designed to cultivate curiosity, strengthen communication, and inspire a lifelong engagement with language and literature.",
+    "As the studio evolved, it expanded beyond teaching to include editorial services, academic research support, and writing mentorship, bringing together education and publishing under one roof.",
+  ];
 
-        {/* Highlighted offset tag */}
-        <div
-          className={`px-6 py-2 text-center shadow-sm font-display tracking-[0.16em] text-[11px] sm:text-[11.5px] font-bold uppercase transition-all duration-300 ${
-            isCenter
-              ? "bg-[#9E3E26] text-[#FAF6F0] -rotate-1 group-hover:rotate-0"
-              : "bg-[#C5A880] text-[#2E2522] rotate-1 group-hover:rotate-0"
-          }`}
-          style={{ transformOrigin: "center" }}
-        >
-          {name}
-        </div>
+  // Section 3: What Makes Us Different
+  const approachEyebrow: string = page?.approachEyebrow || "What Makes Us Different";
+  const approachTitle: string = page?.approachTitle || "Our Approach";
+  const approachIntro: string =
+    page?.approachIntro ||
+    "Every learner arrives with different strengths, challenges, and ambitions. Our teaching is designed around the individual rather than a fixed curriculum.";
+  const approachPoints: string[] = page?.approachPoints || [
+    "Close reading of literary and non-literary texts",
+    "Guided discussions that develop analytical thinking",
+    "Personalised writing workshops with detailed feedback",
+    "Research-based learning beyond examination requirements",
+    "Structured preparation for international curricula and university writing",
+  ];
+  const approachOutro: string =
+    page?.approachOutro ||
+    "Our goal extends beyond examination success. We aim to help students become confident readers, articulate writers, and independent thinkers.";
 
-        {/* Role tag */}
-        <span className="font-display text-[10px] font-bold tracking-[0.2em] text-[#9E3E26]/80 uppercase mt-4 mb-2">
-          {role}
-        </span>
+  // Section 4: Who We Work With
+  const audienceEyebrow: string = page?.audienceEyebrow || "Who We Work With";
+  const audienceTitle: string = page?.audienceTitle || "Learners We Support";
+  const audienceCards: AudienceCard[] = page?.audienceCards || [
+    {
+      title: "School Students",
+      subtitle: "IGCSE • IB • AS & A Level • ICSE • CBSE",
+      description: "Structured preparation and textual analysis across international curricula.",
+    },
+    {
+      title: "University Students",
+      subtitle: "Academic Writing & Research",
+      description: "Academic writing, dissertations, literary research, presentations.",
+    },
+    {
+      title: "Researchers",
+      subtitle: "Publication & Scholarly Support",
+      description: "Editing, publication support, literature reviews, scholarly writing.",
+    },
+    {
+      title: "Writers",
+      subtitle: "Editorial & Manuscript Review",
+      description: "Developmental editing, proofreading, manuscript feedback.",
+    },
+  ];
 
-        {/* Short description */}
-        <p className="font-serif-body text-[14px] leading-relaxed text-[#2E2522]/85 text-center font-medium max-w-[240px]">
-          {description}
-        </p>
-      </div>
-    </ScrollReveal>
-  );
-};
+  // Section 5: Beyond Teaching
+  const beyondEyebrow: string = page?.beyondEyebrow || "Beyond Teaching";
+  const beyondTitle: string = page?.beyondTitle || "More Than a Classroom";
+  const beyondParagraphs: string[] = page?.beyondParagraphs || [
+    "Literature Edit combines academic teaching with professional editorial experience.",
+    "Alongside our educational programmes, we support writers, researchers, and institutions through editorial services including manuscript editing, academic proofreading, content development, and research guidance.",
+    "This integration of teaching and publishing allows students to learn from the perspective of both an educator and an editor—understanding not only how great writing is analysed, but how it is refined and brought to life.",
+    "Whether you're preparing for international examinations, writing your first dissertation, editing a manuscript, or simply hoping to become a stronger reader and writer, Literature Edit is a place where thoughtful learning is valued above hurried achievement.",
+    "We invite you to join a community built on curiosity, precision, and a genuine love for language.",
+  ];
 
-export default function AboutPage() {
+  // Quote
+  const quote: string =
+    page?.quote ||
+    "The purpose of literature is not merely to teach us what to think, but to help us discover how to think.";
 
   return (
     <div className="min-h-screen bg-[#FAF6F0] overflow-x-hidden">
       <Navbar />
 
       <main>
-        {/* Section 1: Hero Container */}
-        <section className="relative w-full h-[85vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
-          {/* Hero Image Backdrop */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/books.webp"
-              alt="Cozy library setting with bookshelves and academic warmth"
-              fill
-              priority
-              className="object-cover object-center"
-            />
-            {/* Elegant dark brand color overlay */}
-            <div className="absolute inset-0 bg-[#2E2522]/65 backdrop-blur-[1px]" />
-          </div>
-
-          {/* Hero Content */}
-          <div className="relative z-10 max-w-4xl px-6 flex flex-col items-center">
-            <ScrollReveal>
-              <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#FAF6F0] leading-[1.05] tracking-[0.06em] uppercase">
-                About Us
+        {/* ==========================================
+            SECTION 1 — MEET THE FOUNDER (HERO)
+        ========================================== */}
+        <section className="relative w-full py-20 lg:py-28 px-6 sm:px-12 max-w-7xl mx-auto border-b border-[#C5A880]/25">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column: Narrative & Intro */}
+            <ScrollReveal className="lg:col-span-7 flex flex-col justify-center">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#2E2522] tracking-tight leading-[1.08] mb-3">
+                {founderTitle}
               </h1>
 
-              <div className="h-px w-24 bg-[#C5A880] mx-auto my-6" />
-
-              <p className="font-serif-body text-[#FAF6F0]/90 text-[15px] sm:text-lg leading-[1.8] max-w-2xl font-medium">
-                From close reading to critical expression, our students discover depth, clarity, and voice - empowered to think beyond the classroom.
+              <p className="font-display text-xs sm:text-sm font-bold tracking-[0.18em] text-[#9E3E26]/90 uppercase mb-8">
+                {founderSub}
               </p>
 
-              <a
-                href="#learners-grid"
-                className="mt-10 inline-flex items-center justify-center px-8 py-3.5 bg-[#FAF6F0] hover:bg-[#C5A880] hover:text-[#2E2522] text-xs tracking-[0.2em] font-display font-bold text-[#9E3E26] uppercase transition-all duration-300 rounded shadow-sm"
-              >
-                See More
-              </a>
+              <div className="space-y-5 font-serif-body text-[15px] sm:text-[16px] leading-[1.85] text-[#2E2522]/85 font-medium">
+                {founderBio.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <a
+                  href="#story"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-[#9E3E26] hover:bg-[#85321E] text-[#FAF6F0] text-xs tracking-[0.2em] font-display font-bold uppercase transition-all duration-300 rounded shadow-sm"
+                >
+                  Our Story
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-7 py-3.5 border border-[#9E3E26]/40 hover:border-[#9E3E26] text-[#9E3E26] hover:bg-[#9E3E26]/5 text-xs tracking-[0.2em] font-display font-bold uppercase transition-all duration-300 rounded"
+                >
+                  Get In Touch
+                </Link>
+              </div>
+            </ScrollReveal>
+
+            {/* Right Column: Founder Image */}
+            <ScrollReveal delay={120} className="lg:col-span-5 flex justify-center">
+              <OrganicImage src={founderImage} alt={founderTitle} index={0} />
             </ScrollReveal>
           </div>
         </section>
 
-        {/* Section 2: Preparing Students to Achieve Success (Alternating Rows) */}
-        <section id="learners-grid" className="w-full py-24 px-6 sm:px-12 max-w-7xl mx-auto">
-          {/* Section Heading */}
-          <div className="mb-20 text-center relative">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-[0.08em] text-[#9E3E26] relative inline-block">
-              Preparing Students to Achieve Success
-              <UnderlineScribble />
-            </h2>
-          </div>
-
-          <div className="space-y-24 md:space-y-32">
-            {/* Row 1: Text Left | Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <ScrollReveal className="lg:col-span-6 flex flex-col justify-center">
-                <span className="font-display text-[10px] font-bold tracking-[0.2em] text-[#9E3E26]/80 uppercase mb-3">
-                  Cognitive Development
-                </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2E2522] tracking-wide mb-6 leading-tight">
-                  Developing Confident and Successful Learners
-                </h3>
-                <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium mb-8">
-                  We guide students to look beneath the surface of texts, building the analytical habits and expressive confidence needed for academic and personal growth. Literature Edit is a dedicated thinking space where voice is shaped through active reading.
-                </p>
-                <div>
-                  <Link
-                    href="/programmes"
-                    className="inline-flex items-center justify-center px-6 py-3 border border-[#9E3E26] text-[10px] tracking-[0.18em] font-display font-bold text-[#9E3E26] hover:bg-[#9E3E26] hover:text-[#FAF6F0] uppercase transition-all duration-300 rounded"
-                  >
-                    View Programmes
-                  </Link>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={120} className="lg:col-span-6">
-                <OrganicImage
-                  src="/Cambridge IB English.webp"
-                  alt="Student writing in their notebook during close study"
-                  index={0}
-                />
-              </ScrollReveal>
-            </div>
-
-            {/* Row 2: Image Left | Text Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <ScrollReveal delay={120} className="lg:col-span-6 order-2 lg:order-1">
-                <OrganicImage
-                  src="/University Application (1).webp"
-                  alt="A student reading books in a cozy study setting"
-                  index={1}
-                />
-              </ScrollReveal>
-              <ScrollReveal className="lg:col-span-6 flex flex-col justify-center order-1 lg:order-2">
-                <span className="font-display text-[10px] font-bold tracking-[0.2em] text-[#9E3E26]/80 uppercase mb-3">
-                  Engagement & Conversation
-                </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2E2522] tracking-wide mb-6 leading-tight">
-                  Enjoy Learning with a Unique Classroom Experience
-                </h3>
-                <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium mb-8">
-                  Our sessions are discussion-driven and student-centered. We treat literature and writing as an active, engaging conversation rather than a set of rules, enabling students to explore alternative perspectives and discover intellectual depth.
-                </p>
-                <div>
-                  <Link
-                    href="/programmes"
-                    className="inline-flex items-center justify-center px-6 py-3 border border-[#9E3E26] text-[10px] tracking-[0.18em] font-display font-bold text-[#9E3E26] hover:bg-[#9E3E26] hover:text-[#FAF6F0] uppercase transition-all duration-300 rounded"
-                  >
-                    View Programmes
-                  </Link>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            {/* Row 3: Text Left | Image Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <ScrollReveal className="lg:col-span-6 flex flex-col justify-center">
-                <span className="font-display text-[10px] font-bold tracking-[0.2em] text-[#9E3E26]/80 uppercase mb-3">
-                  Strategic Mentorship
-                </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2E2522] tracking-wide mb-6 leading-tight">
-                  Passionate Teachers That Make a Difference
-                </h3>
-                <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium mb-8">
-                  Led by founder Asma Khan, the studio brings the rigorous eye of an editor and the warmth of a mentor to every draft, class, and consultation. We are committed to nurturing intellectual identity, academic precision, and original voice.
-                </p>
-                <div>
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center justify-center px-6 py-3 border border-[#9E3E26] text-[10px] tracking-[0.18em] font-display font-bold text-[#9E3E26] hover:bg-[#9E3E26] hover:text-[#FAF6F0] uppercase transition-all duration-300 rounded"
-                  >
-                    Meet Asma
-                  </Link>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={120} className="lg:col-span-6">
-                <OrganicImage
-                  src="/Editorial Services.webp"
-                  alt="Editorial services and manuscripts review process in a studio setting"
-                  index={2}
-                />
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Teachers (Carousel Grid) */}
-        <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/30 py-24 px-6 sm:px-12">
-          <div className="max-w-7xl mx-auto">
-            {/* Title */}
-            <div className="mb-24 text-center relative">
-              <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-[0.08em] text-[#9E3E26] relative inline-block">
-                Teachers
+        {/* ==========================================
+            SECTION 2 — THE STORY BEHIND LITERATURE EDIT
+        ========================================== */}
+        <section id="story" className="w-full bg-[#FCFAF7] border-b border-[#C5A880]/25 py-24 px-6 sm:px-12">
+          <div className="max-w-5xl mx-auto">
+            <ScrollReveal className="text-center mb-16 relative">
+              <span className="font-display text-[11px] font-bold tracking-[0.24em] text-[#9E3E26] uppercase block mb-3">
+                {storyEyebrow}
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-[#2E2522] relative inline-block">
+                {storyTitle}
                 <UnderlineScribble />
               </h2>
-            </div>
+            </ScrollReveal>
 
-            {/* Profile Grid (Left, Center/Highlighted, Right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-8 items-center pt-8">
-              {/* Profile 1: Left */}
-              <TeacherCard
-                name="John Carvan"
-                role="Editorial Associate"
-                image="/john-carvan.png"
-                description="Specializes in developmental editing, manuscript architecture, and rigorous content reviews for academic essays and editorial projects."
-              />
+            <ScrollReveal delay={100} className="max-w-5xl mx-auto text-center py-4">
+              <div className="space-y-6 font-serif-body text-[15px] sm:text-[17px] leading-[1.88] text-[#2E2522]/88 font-medium text-center">
+                {storyParagraphs.map((paragraph, idx) => (
+                  <p
+                    key={idx}
+                    className={idx === 0 ? "text-lg sm:text-xl font-semibold text-[#9E3E26] leading-relaxed text-center" : "text-center"}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
 
-              {/* Profile 2: Center (Highlighted) */}
-              <TeacherCard
-                name="Asma Khan"
-                role="Founder &amp; Lead Mentor"
-                image="/asma-khan.png"
-                description="Brings teaching, editorial craft, and strategic university mentorship together to cultivate students' critical reading and original writerly voice."
-                isCenter={true}
-              />
+        {/* ==========================================
+            SECTION 3 — WHAT MAKES US DIFFERENT (OUR APPROACH)
+        ========================================== */}
+        <section className="w-full py-24 px-6 sm:px-12 max-w-7xl mx-auto border-b border-[#C5A880]/25">
+          <ScrollReveal className="text-center max-w-3xl mx-auto mb-16 relative">
+            <span className="font-display text-[11px] font-bold tracking-[0.24em] text-[#9E3E26] uppercase block mb-3">
+              {approachEyebrow}
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2E2522] tracking-wide relative inline-block mb-6">
+              {approachTitle}
+              <UnderlineScribble />
+            </h2>
+            <p className="font-serif-body text-[15px] sm:text-lg text-[#2E2522]/80 leading-relaxed font-medium">
+              {approachIntro}
+            </p>
+          </ScrollReveal>
 
-              {/* Profile 3: Right */}
-              <TeacherCard
-                name="Sarah Jenkins"
-                role="Writing Mentor"
-                image="/sarah-jenkins.png"
-                description="Focuses on creative writing portfolios, personal statement diagnostics, and school syllabus alignment (IGCSE, Cambridge, and IB English)."
-              />
+          {/* Expectations List */}
+          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 mb-16">
+            {approachPoints.map((point, idx) => (
+              <ScrollReveal
+                key={idx}
+                delay={idx * 80}
+                className="w-full md:w-[calc(50%-12px)] flex items-start gap-4 p-6 bg-[#FCFAF7] border border-[#C5A880]/30 rounded-xl shadow-sm hover:border-[#9E3E26]/40 transition-all duration-300"
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#9E3E26]/10 text-[#9E3E26] flex items-center justify-center font-display font-bold text-sm mt-0.5">
+                  ✓
+                </div>
+                <p className="font-serif-body text-[15px] leading-relaxed text-[#2E2522]/90 font-semibold">
+                  {point}
+                </p>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Outro Callout */}
+          <ScrollReveal delay={200} className="max-w-3xl mx-auto text-center py-4">
+            <p className="font-serif-body text-base sm:text-xl text-[#9E3E26] font-bold italic leading-relaxed text-center">
+              "{approachOutro}"
+            </p>
+          </ScrollReveal>
+        </section>
+
+        {/* ==========================================
+            SECTION 4 — WHO WE WORK WITH (LEARNERS WE SUPPORT)
+        ========================================== */}
+        <section className="w-full bg-[#FCFAF7] border-b border-[#C5A880]/25 py-24 px-6 sm:px-12">
+          <div className="max-w-7xl mx-auto">
+            <ScrollReveal className="text-center mb-16 relative">
+              <span className="font-display text-[11px] font-bold tracking-[0.24em] text-[#9E3E26] uppercase block mb-3">
+                {audienceEyebrow}
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-[#2E2522] relative inline-block">
+                {audienceTitle}
+                <UnderlineScribble />
+              </h2>
+            </ScrollReveal>
+
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {audienceCards.map((card, idx) => (
+                <ScrollReveal
+                  key={idx}
+                  delay={idx * 100}
+                  className="group relative flex flex-col justify-between bg-[#FAF6F0] border border-[#C5A880]/30 rounded-2xl p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#9E3E26]/50 hover:shadow-md"
+                >
+                  <div>
+                    {/* Icon Badge */}
+                    <div className="w-12 h-12 rounded-xl bg-[#9E3E26] text-[#FAF6F0] flex items-center justify-center font-display font-bold text-lg mb-6 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                      {idx === 0 && "🎓"}
+                      {idx === 1 && "🏛️"}
+                      {idx === 2 && "🔬"}
+                      {idx === 3 && "✍️"}
+                      {idx > 3 && "📚"}
+                    </div>
+
+                    <h3 className="font-display text-xl font-bold text-[#2E2522] mb-2 group-hover:text-[#9E3E26] transition-colors">
+                      {card.title}
+                    </h3>
+
+                    {card.subtitle && (
+                      <span className="inline-block px-3 py-1 bg-[#C5A880]/20 text-[#9E3E26] text-[11px] font-display font-bold tracking-wider rounded-full mb-4">
+                        {card.subtitle}
+                      </span>
+                    )}
+
+                    <p className="font-serif-body text-[14px] leading-relaxed text-[#2E2522]/80 font-medium">
+                      {card.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[#C5A880]/20 flex items-center justify-between text-xs font-display font-bold text-[#9E3E26]">
+                    <span>Learn More</span>
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </div>
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Section 4: Why it works (Three Columns) */}
-        <section className="w-full py-24 px-6 sm:px-12 max-w-7xl mx-auto">
-          {/* Title */}
-          <div className="mb-20 text-center relative">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-[0.08em] text-[#9E3E26] relative inline-block">
-              Why it works
-              <UnderlineScribble />
-            </h2>
-          </div>
+        {/* ==========================================
+            SECTION 5 — BEYOND TEACHING (MORE THAN A CLASSROOM)
+        ========================================== */}
+        <section className="w-full py-24 px-6 sm:px-12 max-w-7xl mx-auto border-b border-[#C5A880]/25">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <ScrollReveal className="lg:col-span-7 flex flex-col justify-center">
+              <span className="font-display text-[11px] font-bold tracking-[0.24em] text-[#9E3E26] uppercase mb-3">
+                {beyondEyebrow}
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2E2522] tracking-wide mb-8">
+                {beyondTitle}
+              </h2>
 
-          {/* 3 Columns Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-6">
-            {/* Column 1 */}
-            <ScrollReveal className="flex flex-col items-center text-center group">
-              <div className="relative w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src="/personalised-mentorship.webp"
-                  alt="Personalized learning icon"
-                  fill
-                  sizes="80px"
-                  className="object-contain"
-                />
+              <div className="space-y-6 font-serif-body text-[15px] sm:text-[16.5px] leading-[1.85] text-[#2E2522]/85 font-medium">
+                {beyondParagraphs.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
-              <h3 className="font-display text-[13px] font-bold tracking-[0.16em] text-[#9E3E26] mb-3 uppercase">
-                Personalized learning
-              </h3>
-              <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium max-w-[280px]">
-                Students practice at their own pace, first filling in gaps in their understanding and then accelerating their learning.
-              </p>
             </ScrollReveal>
 
-            {/* Column 2 */}
-            <ScrollReveal delay={90} className="flex flex-col items-center text-center group">
-              <div className="relative w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-105">
+            <ScrollReveal delay={120} className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden border border-[#C5A880]/30 shadow-xl group">
                 <Image
-                  src="/academic-excellence.webp"
-                  alt="Trusted content icon"
+                  src="/vintage-studio.png"
+                  alt="Literature Edit Editorial Studio"
                   fill
-                  sizes="80px"
-                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2E2522]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 text-[#FAF6F0]">
+                  <p className="font-display text-xs uppercase tracking-[0.2em] font-bold text-[#C5A880]">
+                    Editorial Studio &amp; Research
+                  </p>
+                  <p className="font-serif-body text-sm font-medium mt-1">
+                    Where educational clarity meets publishing expertise.
+                  </p>
+                </div>
               </div>
-              <h3 className="font-display text-[13px] font-bold tracking-[0.16em] text-[#9E3E26] mb-3 uppercase">
-                Trusted content
-              </h3>
-              <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium max-w-[280px]">
-                Created by experts, our library of trusted practice and lessons covers literature, analysis, writing structures, and more.
-              </p>
-            </ScrollReveal>
-
-            {/* Column 3 */}
-            <ScrollReveal delay={180} className="flex flex-col items-center text-center group">
-              <div className="relative w-20 h-20 mb-6 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src="/critikal-thinking.webp"
-                  alt="Tools to empower teachers icon"
-                  fill
-                  sizes="80px"
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="font-display text-[13px] font-bold tracking-[0.16em] text-[#9E3E26] mb-3 uppercase">
-                Tools to empower teachers
-              </h3>
-              <p className="font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/85 font-medium max-w-[280px]">
-                Teachers and mentors can identify specific gaps in their students' understanding, tailor instruction, and meet the needs of every student.
-              </p>
             </ScrollReveal>
           </div>
+        </section>
+
+        {/* ==========================================
+            SMALL QUOTE AT THE END & CTA
+        ========================================== */}
+        <section className="relative overflow-hidden bg-[#9E3E26] text-[#FAF6F0] py-20 px-6 sm:px-12 lg:px-16">
+          {/* Subtle background pattern overlay */}
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FAF6F0_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+
+          <ScrollReveal className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center">
+            {/* Quote Mark Icon */}
+            <svg
+              className="w-12 h-12 text-[#C5A880] mb-6 opacity-90"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+
+            <blockquote className="font-serif-body text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug tracking-wide max-w-3xl mb-8 text-[#FAF6F0]">
+              "{quote}"
+            </blockquote>
+
+            <div className="h-px w-20 bg-[#C5A880] my-2 mb-8" />
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border border-[#FAF6F0]/60 px-8 py-4 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#FAF6F0] transition-all duration-300 hover:bg-[#FAF6F0] hover:text-[#9E3E26] rounded"
+            >
+              Join Our Community
+            </Link>
+          </ScrollReveal>
         </section>
       </main>
 

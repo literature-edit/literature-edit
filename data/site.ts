@@ -9,6 +9,12 @@ export type FeatureCard = {
   description: string;
 };
 
+export type AudienceCard = {
+  title: string;
+  subtitle: string;
+  description: string;
+};
+
 export type SitePage = {
   slug: string;
   label: string;
@@ -20,12 +26,66 @@ export type SitePage = {
   highlights: FeatureCard[];
   closingTitle: string;
   closingText: string;
+
+  // Home Page Rich Sections
+  studioTitle?: string;
+  studioEyebrow?: string;
+  studioParagraphs?: string[];
+
+  offerTitle?: string;
+  offerItems?: { title: string; description: string; link?: string; image?: string }[];
+
+  myApproachTitle?: string;
+  myApproachItems?: { title: string; description: string; image?: string }[];
+
+  whySub?: string;
+  whyBody?: string;
+
+  deskTitle?: string;
+  deskIntro?: string;
+  deskCards?: { label: string; title: string; excerpt: string; image?: string; link?: string }[];
+
+  testimonialsTitle?: string;
+  testimonials?: { quote: string; author?: string }[];
+
+  ctaTitle?: string;
+  ctaText?: string;
+
+  footerTagline?: string;
+  footerSubtagline?: string;
+
+  // Rich About Page Sections
+  founderName?: string;
+  founderTitle?: string;
+  founderSub?: string;
+  founderBio?: string[];
+  founderImage?: string;
+
+  storyEyebrow?: string;
+  storyTitle?: string;
+  storyParagraphs?: string[];
+
+  approachEyebrow?: string;
+  approachTitle?: string;
+  approachIntro?: string;
+  approachPoints?: string[];
+  approachOutro?: string;
+
+  audienceEyebrow?: string;
+  audienceTitle?: string;
+  audienceCards?: AudienceCard[];
+
+  beyondEyebrow?: string;
+  beyondTitle?: string;
+  beyondParagraphs?: string[];
+
+  quote?: string;
 };
 
 export const mainNavLinks: SiteLink[] = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
-  { label: "PROGRAMMES", href: "/programmes" },
+  { label: "LITERARY STUDIO", href: "/programmes" },
   { label: "EDITORIAL SERVICES", href: "/editorial-services" },
   { label: "RESOURCES", href: "/resources" },
   { label: "JOURNAL", href: "/journal" },
@@ -34,7 +94,7 @@ export const mainNavLinks: SiteLink[] = [
 
 export const quickFooterLinks: SiteLink[] = [
   { label: "About", href: "/about" },
-  { label: "Programmes", href: "/programmes" },
+  { label: "Literary Studio", href: "/programmes" },
   { label: "Editorial Services", href: "/editorial-services" },
   { label: "Resources", href: "/resources" },
   { label: "Journal", href: "/journal" },
@@ -56,14 +116,153 @@ export const legalFooterLinks: SiteLink[] = [
 
 export const pages: SitePage[] = [
   {
+    slug: "home",
+    label: "Home",
+    eyebrow: "A Literary Studio for Readers, Writers & Thinkers",
+    title: "Literature Edit",
+    intro:
+      "Literature Edit is where language becomes a means of inquiry, literature becomes a conversation, and learning extends beyond examinations. Founded by Asma Khan, the studio brings together academic mentorship, editorial expertise, and a lifelong engagement with the written word.\n\nWhether you're preparing for IGCSE, IB, university applications, or refining your writing, every session is built around curiosity, clarity, and confidence.",
+    image: "/hero-books.png",
+    imageAlt: "Open books and writing materials on a wooden table",
+    highlights: [],
+    closingTitle: "Ready to Begin?",
+    closingText:
+      "Whether you're preparing for examinations, refining your writing, or seeking long-term academic mentorship, I'd be delighted to work with you.",
+
+    // Section 2: More Than Tutoring
+    studioEyebrow: "About the Studio",
+    studioTitle: "More Than Tutoring",
+    studioParagraphs: [
+      "Literature Edit was created with the belief that education should cultivate independent thinkers rather than simply prepare students for examinations.",
+      "Every lesson is designed to encourage close reading, thoughtful discussion, and purposeful writing. Beyond the classroom, the studio offers editorial support, university guidance, and research mentoring—helping learners become articulate readers, confident writers, and critical thinkers."
+    ],
+
+    // Section 3: What I Offer
+    offerTitle: "What I Offer",
+    offerItems: [
+      {
+        title: "Cambridge & IB English",
+        description:
+          "Personalised support for IGCSE, IB, AS & A Level English Language and Literature, focused on analytical reading, structured writing, and examination success.",
+        link: "/programmes",
+        image: "/Cambridge IB English.webp"
+      },
+      {
+        title: "Editorial Services",
+        description:
+          "Developmental editing, academic editing, proofreading, content review, and manuscript feedback for students, researchers, and writers.",
+        link: "/editorial-services",
+        image: "/Editorial Services.webp"
+      },
+      {
+        title: "University Applications",
+        description:
+          "Personal statements, college essays, interview preparation, Extended Essays, Internal Assessments, and academic writing guidance.",
+        link: "/university-mentorship",
+        image: "/University Application (1).webp"
+      },
+      {
+        title: "Research & Academic Writing",
+        description:
+          "Research mentoring, essay planning, source evaluation, and academic writing support for school and university learners.",
+        link: "/academic-writing",
+        image: "/Research.png from Squoosh.webp"
+      }
+    ],
+
+    // Section 4: My Approach
+    myApproachTitle: "My Approach",
+    myApproachItems: [
+      {
+        title: "Personalised",
+        description:
+          "Every learner brings a different perspective, pace, and goal. Lessons are designed around individual strengths while building lasting confidence.",
+        image: "/personalised-mentorship.webp"
+      },
+      {
+        title: "Rigorous",
+        description:
+          "Academic excellence is achieved through consistency, careful feedback, and meaningful engagement—not memorisation.",
+        image: "/academic-excellence.webp"
+      },
+      {
+        title: "Thoughtful",
+        description:
+          "Students are encouraged to question, analyse, interpret, and communicate ideas with clarity.",
+        image: "/critikal-thinking.webp"
+      },
+      {
+        title: "Beyond the Classroom",
+        description:
+          "The aim isn't simply better grades—it's developing readers and writers who continue learning long after the examination ends.",
+        image: "/editorial-precision.webp"
+      }
+    ],
+
+    // Section 5: Why Literature Edit?
+    whySub: "Because language shapes the way we understand the world.",
+    whyBody:
+      "Here, literature is explored not only as a subject, but as a way of thinking. Every lesson, editorial project, and mentoring session is guided by patience, precision, and an enduring appreciation for ideas.",
+
+    // Section 6: From the Literary Desk
+    deskTitle: "From the Literary Desk",
+    deskIntro:
+      "A space for essays, reflections, reading recommendations, and conversations about literature, language, and culture.",
+    deskCards: [
+      {
+        label: "ESSAYS",
+        title: "Thoughtful Explorations",
+        excerpt:
+          "Thoughtful explorations of literary works, contemporary issues, and the craft of writing.",
+        image: "/desk-essay.png",
+        link: "/journal"
+      },
+      {
+        label: "READING LISTS",
+        title: "Curated Recommendations",
+        excerpt:
+          "Curated recommendations for readers at every stage—from classics to contemporary voices.",
+        image: "/desk-books.png",
+        link: "/resources"
+      },
+      {
+        label: "STUDIO NOTES",
+        title: "Teaching & Research Reflections",
+        excerpt:
+          "Observations from teaching, editing, and research, alongside reflections on books and learning.",
+        image: "/desk-studio.png",
+        link: "/journal"
+      }
+    ],
+
+    // Section 7: A Few Words from Students
+    testimonialsTitle: "A Few Words from Students",
+    testimonials: [
+      {
+        quote:
+          "Asma made literature feel less like an examination subject and more like something worth returning to.",
+        author: "Student"
+      }
+    ],
+
+    // Final CTA
+    ctaTitle: "Ready to Begin?",
+    ctaText:
+      "Whether you're preparing for examinations, refining your writing, or seeking long-term academic mentorship, I'd be delighted to work with you.",
+
+    // Footer
+    footerTagline: "A Literary Studio for Readers, Writers & Thinkers.",
+    footerSubtagline: "IGCSE • IB • AS & A Level • University Mentorship • Editorial Services"
+  },
+  {
     slug: "about",
     label: "About",
-    eyebrow: "The Studio",
-    title: "A place for careful reading and confident voice.",
+    eyebrow: "Meet Asma Khan",
+    title: "Meet Asma Khan",
     intro:
-      "Literature Edit brings together teaching, editorial thinking, and academic mentorship for learners and writers who want substance as much as polish.",
-    image: "/vintage-studio.png",
-    imageAlt: "Vintage writing desk with a typewriter, books, and warm studio light",
+      "Literature Edit was founded by Asma Khan, an English Language and Literature educator, editor, and researcher with a passion for thoughtful learning and meaningful writing.",
+    image: "/asma-khan.png",
+    imageAlt: "Asma Khan - Founder of Literature Edit",
     highlights: [
       {
         eyebrow: "Founder-Led",
@@ -87,6 +286,79 @@ export const pages: SitePage[] = [
     closingTitle: "For readers, writers, learners.",
     closingText:
       "The work is rigorous, warm, and precise: the kind of guidance that helps ideas become clearer without flattening their originality.",
+
+    // Section 1: Meet the Founder
+    founderName: "Asma Khan",
+    founderTitle: "Meet Asma Khan",
+    founderSub: "Founder & Lead Mentor",
+    founderBio: [
+      "Literature Edit was founded by Asma Khan, an English Language and Literature educator, editor, and researcher with a passion for thoughtful learning and meaningful writing.",
+      "With experience spanning international curricula, academic mentoring, publishing, and editorial work, she has worked with students, researchers, and writers across different stages of their academic and creative journeys. Her teaching combines close reading, critical inquiry, and structured writing to help learners develop confidence, clarity, and intellectual independence.",
+      "What began as a commitment to helping students move beyond memorisation has grown into a literary studio dedicated to nurturing readers, writers, and thinkers."
+    ],
+    founderImage: "/asma-khan.png",
+
+    // Section 2: The Story Behind Literature Edit
+    storyEyebrow: "The Story Behind Literature Edit",
+    storyTitle: "Why Literature Edit?",
+    storyParagraphs: [
+      "Literature Edit was created from a simple belief: that literature is more than an academic subject—it is a way of understanding people, ideas, and the world around us.",
+      "In a learning environment often focused on examinations and model answers, Literature Edit offers a different approach. Here, students are encouraged to question, analyse, interpret, and write with originality. Every lesson is designed to cultivate curiosity, strengthen communication, and inspire a lifelong engagement with language and literature.",
+      "As the studio evolved, it expanded beyond teaching to include editorial services, academic research support, and writing mentorship, bringing together education and publishing under one roof."
+    ],
+
+    // Section 3: What Makes Us Different
+    approachEyebrow: "What Makes Us Different",
+    approachTitle: "Our Approach",
+    approachIntro: "Every learner arrives with different strengths, challenges, and ambitions. Our teaching is designed around the individual rather than a fixed curriculum.",
+    approachPoints: [
+      "Close reading of literary and non-literary texts",
+      "Guided discussions that develop analytical thinking",
+      "Personalised writing workshops with detailed feedback",
+      "Research-based learning beyond examination requirements",
+      "Structured preparation for international curricula and university writing"
+    ],
+    approachOutro: "Our goal extends beyond examination success. We aim to help students become confident readers, articulate writers, and independent thinkers.",
+
+    // Section 4: Who We Work With
+    audienceEyebrow: "Who We Work With",
+    audienceTitle: "Learners We Support",
+    audienceCards: [
+      {
+        title: "School Students",
+        subtitle: "IGCSE • IB • AS & A Level • ICSE • CBSE",
+        description: "Structured preparation and textual analysis across international curricula."
+      },
+      {
+        title: "University Students",
+        subtitle: "Academic Writing & Research",
+        description: "Academic writing, dissertations, literary research, presentations."
+      },
+      {
+        title: "Researchers",
+        subtitle: "Publication & Scholarly Support",
+        description: "Editing, publication support, literature reviews, scholarly writing."
+      },
+      {
+        title: "Writers",
+        subtitle: "Editorial & Manuscript Review",
+        description: "Developmental editing, proofreading, manuscript feedback."
+      }
+    ],
+
+    // Section 5: Beyond Teaching
+    beyondEyebrow: "Beyond Teaching",
+    beyondTitle: "More Than a Classroom",
+    beyondParagraphs: [
+      "Literature Edit combines academic teaching with professional editorial experience.",
+      "Alongside our educational programmes, we support writers, researchers, and institutions through editorial services including manuscript editing, academic proofreading, content development, and research guidance.",
+      "This integration of teaching and publishing allows students to learn from the perspective of both an educator and an editor—understanding not only how great writing is analysed, but how it is refined and brought to life.",
+      "Whether you're preparing for international examinations, writing your first dissertation, editing a manuscript, or simply hoping to become a stronger reader and writer, Literature Edit is a place where thoughtful learning is valued above hurried achievement.",
+      "We invite you to join a community built on curiosity, precision, and a genuine love for language."
+    ],
+
+    // Quote
+    quote: "The purpose of literature is not merely to teach us what to think, but to help us discover how to think."
   },
   {
     slug: "programmes",
@@ -232,7 +504,7 @@ export const pages: SitePage[] = [
     highlights: [
       {
         eyebrow: "Email",
-        title: "hello@literatureedit.com",
+        title: "asmakhan7783@gmail.com",
         description:
           "Share the project, deadline, learner level, or text you would like to work on.",
       },

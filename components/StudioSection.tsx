@@ -6,7 +6,20 @@ import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionHeading from "./SectionHeading";
 
-export default function StudioSection() {
+interface StudioSectionProps {
+  title?: string;
+  eyebrow?: string;
+  paragraphs?: string[];
+}
+
+export default function StudioSection({ title, eyebrow, paragraphs }: StudioSectionProps) {
+  const displayEyebrow = eyebrow || "About the Studio";
+  const displayTitle = title || "MORE THAN TUTORING";
+  const displayParagraphs = paragraphs && paragraphs.length > 0 ? paragraphs : [
+    "Literature Edit was created with the belief that education should cultivate independent thinkers rather than simply prepare students for examinations.",
+    "Every lesson is designed to encourage close reading, thoughtful discussion, and purposeful writing. Beyond the classroom, the studio offers editorial support, university guidance, and research mentoring—helping learners become articulate readers, confident writers, and critical thinkers."
+  ];
+
   return (
     <section className="relative w-full bg-[#FCFAF7] border-y border-[#C5A880]/20 py-20 overflow-hidden">
       {/* Background texture overlay */}
@@ -45,21 +58,17 @@ export default function StudioSection() {
         {/* Right Side: Paragraphs and Info */}
         <ScrollReveal delay={120} className="lg:col-span-6 flex flex-col justify-center">
           <SectionHeading
-            eyebrow="About the Studio"
-            title="A LITERARY STUDIO"
+            eyebrow={displayEyebrow}
+            title={displayTitle}
             align="left"
           />
 
           <div className="font-serif-body text-[#2E2522] font-medium text-[15px] sm:text-base leading-[1.75] space-y-6 max-w-xl">
-            <p className="font-bold text-[#9E3E26]">
-              Literature Edit is where ideas are explored, questions are deepened, and voices are shaped.
-            </p>
-            <p>
-              Founded by Asma Khan, the studio brings together teaching, editing, and research to help learners and writers engage with language with depth and purpose.
-            </p>
-            <p>
-              Here, literature is not just studied - it is lived, questioned, and reimagined.
-            </p>
+            {displayParagraphs.map((p, idx) => (
+              <p key={idx} className={idx === 0 ? "font-bold text-[#9E3E26]" : ""}>
+                {p}
+              </p>
+            ))}
           </div>
 
           <div className="mt-8">
@@ -68,7 +77,7 @@ export default function StudioSection() {
               className="inline-flex items-center gap-2 font-display text-[11px] tracking-[0.2em] font-bold text-[#9E3E26] hover:text-[#85321E] transition-colors group uppercase"
             >
               Learn more about Asma
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+              <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1.5">
                 →
               </span>
             </Link>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageTemplate from "../../components/PageTemplate";
-import { pageMap, pages } from "../../data/site";
+import { pages } from "../../data/site";
+import { getPageData } from "../../lib/db-pages";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -11,6 +12,7 @@ export function generateStaticParams() {
   return pages
     .filter(
       (page) =>
+        page.slug !== "home" &&
         page.slug !== "about" &&
         page.slug !== "programmes" &&
         page.slug !== "editorial-services" &&
@@ -25,7 +27,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const page = pageMap.get(slug);
+  const page = await getPageData(slug);
 
   if (!page) {
     return {
@@ -41,7 +43,7 @@ export async function generateMetadata({
 
 export default async function DynamicPage({ params }: PageProps) {
   const { slug } = await params;
-  const page = pageMap.get(slug);
+  const page = await getPageData(slug);
 
   if (!page) {
     notFound();
@@ -49,3 +51,4 @@ export default async function DynamicPage({ params }: PageProps) {
 
   return <PageTemplate page={page} />;
 }
+

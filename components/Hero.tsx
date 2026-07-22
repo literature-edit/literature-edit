@@ -4,7 +4,22 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+interface HeroProps {
+  title?: string;
+  eyebrow?: string;
+  intro?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+export default function Hero({ title, eyebrow, intro, image, imageAlt }: HeroProps) {
+  // Split title by spaces or block if it matches LITERATURE EDIT
+  const displayTitle = title || "LITERATURE EDIT";
+  const displayEyebrow = eyebrow || "Read Closely. Think Boldly.\nWrite Authentically.";
+  const displayIntro = intro || "A literary studio dedicated to thoughtful teaching, editorial excellence, and academic mentorship. From IGCSE and IB classrooms to university applications and editorial projects, every interaction is rooted in curiosity, clarity, and craft.";
+  const displayImage = image || "/hero-books.png";
+  const displayImageAlt = imageAlt || "Vintage books open on a wooden table, teacup, and dried flowers in front of a window with warm morning light";
+
   return (
     <section
       className="relative top-[-14px] w-full px-6 sm:px-12 lg:px-16 pt-28 pb-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:left-[2px]"
@@ -12,8 +27,14 @@ export default function Hero() {
       {/* Left Text Content */}
       <div className="lg:col-span-5 flex flex-col justify-center">
         <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#9E3E26] leading-[1.05] tracking-[0.06em]">
-          LITERATURE
-          <span className="block mt-2">EDIT</span>
+          {displayTitle.includes("LITERATURE") ? (
+            <>
+              LITERATURE
+              <span className="block mt-2">{displayTitle.replace("LITERATURE", "").trim() || "EDIT"}</span>
+            </>
+          ) : (
+            displayTitle
+          )}
         </h1>
 
         {/* Asterisk/Flower Divider Ornament */}
@@ -25,14 +46,13 @@ export default function Hero() {
         </div>
 
         {/* Subtitle */}
-        <p className="font-display italic text-[#9E3E26] text-2xl sm:text-[28px] leading-[1.3] font-medium tracking-wide">
-          Read Closely. Think Boldly.
-          <span className="block mt-1">Write Authentically.</span>
+        <p className="font-display italic text-[#9E3E26] text-2xl sm:text-[28px] leading-[1.3] font-medium tracking-wide whitespace-pre-line">
+          {displayEyebrow}
         </p>
 
         {/* Body Paragraph */}
         <p className="font-serif-body text-[#2E2522]/90 text-[15px] sm:text-base leading-relaxed max-w-md mt-6 opacity-95">
-          A literary studio dedicated to thoughtful teaching, editorial excellence, and academic mentorship. From IGCSE and IB classrooms to university applications and editorial projects, every interaction is rooted in curiosity, clarity, and craft.
+          {displayIntro}
         </p>
 
         {/* Call to Actions */}
@@ -61,8 +81,8 @@ export default function Hero() {
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#FAF6F0] to-transparent pointer-events-none z-10 lg:hidden" />
 
         <Image
-          src="/hero-books.png"
-          alt="Vintage books open on a wooden table, teacup, and dried flowers in front of a window with warm morning light"
+          src={displayImage}
+          alt={displayImageAlt}
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 55vw"

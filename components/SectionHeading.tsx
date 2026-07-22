@@ -25,7 +25,7 @@ export default function SectionHeading({
       <span className="font-display text-[11px] tracking-[0.24em] text-[#9E3E26] uppercase font-bold">
         {eyebrow}
       </span>
-      <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#9E3E26] mt-2 tracking-[0.07em] leading-tight">
+      <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#9E3E26] mt-2 tracking-[0.07em] leading-tight">
         {title}
       </h2>
       {description ? (

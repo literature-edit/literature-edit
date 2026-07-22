@@ -28,7 +28,7 @@ export default function PageTemplate({ page }: PageTemplateProps) {
               <p className="mt-8 font-display text-[11px] font-semibold uppercase tracking-[0.28em] text-[#9E3E26]/80">
                 {page.eyebrow}
               </p>
-              <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold leading-[0.98] tracking-[0.035em] text-[#9E3E26] sm:text-6xl lg:text-[82px]">
+              <h1 className="mt-4 max-w-3xl font-display text-5xl font-extrabold leading-[0.98] tracking-[0.035em] text-[#9E3E26] sm:text-6xl lg:text-[82px]">
                 {page.title}
               </h1>
               <p className="mt-7 max-w-2xl font-serif-body text-base leading-[1.85] text-[#2E2522]/82 sm:text-lg">
@@ -64,7 +64,7 @@ export default function PageTemplate({ page }: PageTemplateProps) {
                 <p className="font-display text-[10px] font-semibold uppercase tracking-[0.24em] text-[#9E3E26]/75">
                   {item.eyebrow}
                 </p>
-                <h2 className="mt-4 font-display text-2xl font-bold leading-tight tracking-[0.03em] text-[#2E2522] transition-colors group-hover:text-[#9E3E26]">
+                <h2 className="mt-4 font-display text-2xl font-extrabold leading-tight tracking-[0.03em] text-[#2E2522] transition-colors group-hover:text-[#9E3E26]">
                   {item.title}
                 </h2>
                 <p className="mt-4 font-serif-body text-[15px] leading-[1.75] text-[#2E2522]/76">
@@ -80,7 +80,7 @@ export default function PageTemplate({ page }: PageTemplateProps) {
             <p className="font-display text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C5A880]">
               Next Chapter
             </p>
-            <h2 className="mt-4 font-display text-4xl font-bold leading-tight tracking-[0.04em] sm:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-extrabold leading-tight tracking-[0.04em] sm:text-5xl">
               {page.closingTitle}
             </h2>
             <p className="mt-6 max-w-3xl font-serif-body text-base leading-[1.85] text-[#FAF6F0]/82 sm:text-lg">
