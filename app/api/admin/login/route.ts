@@ -6,8 +6,12 @@ import { seedDatabase } from "@/lib/seed";
 
 export async function POST(request: Request) {
   try {
-    // Automatically seed database on first login try if it hasn't been done
-    await seedDatabase();
+    // Safely seed database if needed without letting seeding failures break login
+    try {
+      await seedDatabase();
+    } catch (seedErr) {
+      console.warn("Database seeding warning:", seedErr);
+    }
 
     const { username, password } = await request.json();
 
@@ -15,6 +19,13 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: "Username and password are required" },
         { status: 400 }
+      );
+    }
+
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json(
+        { error: "MONGODB_URI environment variable is missing on server" },
+        { status: 500 }
       );
     }
 
@@ -55,7 +66,7 @@ export async function POST(request: Request) {
   } catch (error: any) {
     console.error("Login API Error:", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: error?.message || "Internal Server Error" },
       { status: 500 }
     );
   }

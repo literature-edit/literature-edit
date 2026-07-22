@@ -36,7 +36,7 @@ export async function GET(request: Request) {
     return NextResponse.json(pages);
   } catch (error: any) {
     console.error("GET Pages Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: error?.message || "Internal Server Error" }, { status: 500 });
   }
 }
 
@@ -67,6 +67,6 @@ export async function PUT(request: Request) {
     return NextResponse.json({ success: true, result });
   } catch (error: any) {
     console.error("PUT Page Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: error?.message || "Internal Server Error" }, { status: 500 });
   }
 }
