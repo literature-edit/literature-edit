@@ -10,6 +10,8 @@ async function checkAuth() {
   return !!verifySessionToken(session);
 }
 
+import { pages as staticPages } from "@/data/site";
+
 export async function GET(request: Request) {
   try {
     const isAuth = await checkAuth();
@@ -26,14 +28,37 @@ export async function GET(request: Request) {
 
     if (slug) {
       const page = await pagesCollection.findOne({ slug });
-      if (!page) {
+      const staticMatch = staticPages.find((p) => p.slug === slug);
+      if (!page && !staticMatch) {
         return NextResponse.json({ error: "Page not found" }, { status: 404 });
       }
-      return NextResponse.json(page);
+      if (page) {
+        const { _id, ...rest } = page;
+        return NextResponse.json({ ...staticMatch, ...rest });
+      }
+      return NextResponse.json(staticMatch);
     }
 
-    const pages = await pagesCollection.find({}).toArray();
-    return NextResponse.json(pages);
+    const dbPages = await pagesCollection.find({}).toArray();
+    const dbPagesMap = new Map(dbPages.map((p) => [p.slug, p]));
+
+    const combinedPages = staticPages.map((sp) => {
+      const dbP = dbPagesMap.get(sp.slug);
+      if (dbP) {
+        const { _id, ...rest } = dbP;
+        return { ...sp, ...rest };
+      }
+      return sp;
+    });
+
+    for (const dbP of dbPages) {
+      if (!staticPages.some((sp) => sp.slug === dbP.slug)) {
+        const { _id, ...rest } = dbP;
+        combinedPages.push(rest as any);
+      }
+    }
+
+    return NextResponse.json(combinedPages);
   } catch (error: any) {
     console.error("GET Pages Error:", error);
     return NextResponse.json({ error: error?.message || "Internal Server Error" }, { status: 500 });

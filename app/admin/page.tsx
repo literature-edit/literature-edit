@@ -99,6 +99,18 @@ type SitePage = {
   beyondParagraphs?: string[];
 
   quote?: string;
+
+  // LitHub Style Article Fields
+  author?: string;
+  authorRole?: string;
+  authorImage?: string;
+  authorBio?: string;
+  publishDate?: string;
+  readTime?: string;
+  tags?: string[];
+  pullquote?: string;
+  pullquote2?: string;
+  articleParagraphs?: string[];
 };
 
 export default function AdminDashboard() {
@@ -120,6 +132,18 @@ export default function AdminDashboard() {
   const [highlights, setHighlights] = useState<FeatureCard[]>([]);
   const [closingTitle, setClosingTitle] = useState("");
   const [closingText, setClosingText] = useState("");
+
+  // LitHub Article State
+  const [author, setAuthor] = useState("");
+  const [authorRole, setAuthorRole] = useState("");
+  const [authorImage, setAuthorImage] = useState("");
+  const [authorBio, setAuthorBio] = useState("");
+  const [publishDate, setPublishDate] = useState("");
+  const [readTime, setReadTime] = useState("");
+  const [tagsText, setTagsText] = useState("");
+  const [pullquote, setPullquote] = useState("");
+  const [pullquote2, setPullquote2] = useState("");
+  const [articleParagraphsText, setArticleParagraphsText] = useState("");
 
   // Home Page State
   const [studioTitle, setStudioTitle] = useState("");
@@ -210,6 +234,25 @@ export default function AdminDashboard() {
     setHighlights(page.highlights || []);
     setClosingTitle(page.closingTitle || "");
     setClosingText(page.closingText || "");
+
+    // LitHub Article Fields State
+    setAuthor(page.author || "Asma Khan");
+    setAuthorRole(page.authorRole || "Founder & Lead Mentor");
+    setAuthorImage(page.authorImage || "/asma-khan.png");
+    setAuthorBio(
+      page.authorBio ||
+        "Asma Khan is an English Language and Literature educator, editor, and researcher with a passion for thoughtful learning and meaningful writing."
+    );
+    setPublishDate(page.publishDate || "July 27, 2026");
+    setReadTime(page.readTime || "6 min read");
+    setTagsText(page.tags ? page.tags.join(", ") : "");
+    setPullquote(page.pullquote || "");
+    setPullquote2(page.pullquote2 || "");
+    setArticleParagraphsText(
+      page.articleParagraphs && page.articleParagraphs.length > 0
+        ? page.articleParagraphs.join("\n\n")
+        : ""
+    );
 
     // Home Page Sections State
     setStudioEyebrow(page.studioEyebrow || "About the Studio");
@@ -495,6 +538,19 @@ export default function AdminDashboard() {
       highlights,
       closingTitle,
       closingText,
+      author,
+      authorRole,
+      authorImage,
+      authorBio,
+      publishDate,
+      readTime,
+      tags: tagsText.split(",").map((t) => t.trim()).filter(Boolean),
+      pullquote,
+      pullquote2,
+      articleParagraphs: articleParagraphsText
+        .split("\n\n")
+        .map((p) => p.trim())
+        .filter(Boolean),
     };
 
     if (selectedPage.slug === "home") {
@@ -610,7 +666,7 @@ export default function AdminDashboard() {
   const isAboutPage = selectedPage?.slug === "about";
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#FAF6F0] relative overflow-hidden">
+    <div className="flex flex-col md:flex-row h-screen bg-[#FAF6F0] relative overflow-hidden">
       {/* Background texture overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-0 opacity-15"
@@ -622,7 +678,7 @@ export default function AdminDashboard() {
         }}
       />
       {/* Sidebar - Pages list */}
-      <aside className="w-full md:w-64 bg-[#FAF6F0]/90 backdrop-blur-sm border-r border-[#2E2522]/10 p-6 flex flex-col justify-between relative z-10">
+      <aside className="w-full md:w-64 h-full overflow-y-auto bg-[#FAF6F0]/90 backdrop-blur-sm border-r border-[#2E2522]/10 p-6 flex flex-col justify-between relative z-10 shrink-0">
         <div>
           {/* Brand */}
           <div className="flex items-center gap-3 mb-8">
@@ -666,7 +722,7 @@ export default function AdminDashboard() {
       </aside>
 
       {/* Main content - Page form */}
-      <main className="flex-1 p-6 md:p-10 max-w-4xl overflow-y-auto relative z-10">
+      <main className="flex-1 h-full overflow-y-auto p-6 md:p-10 max-w-5xl relative z-10">
         {selectedPage ? (
           <div>
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#2E2522]/10">
@@ -760,6 +816,139 @@ export default function AdminDashboard() {
                   />
                 </div>
               </div>
+
+              {/* LITHUB ARTICLE CONTENT & DETAILS (FOR ALL DETAIL PAGES) */}
+              {!isHomePage && !isAboutPage && (
+                <div className="bg-[#FCFAF7] border border-[#C5A880]/40 rounded-lg p-6 space-y-6">
+                  <h3 className="font-sans text-xs font-black text-[#9E3E26] border-b border-[#2E2522]/10 pb-2 uppercase tracking-wider">
+                    LitHub Article Content & Details
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                        Author Name
+                      </label>
+                      <input
+                        type="text"
+                        value={author}
+                        onChange={(e) => setAuthor(e.target.value)}
+                        className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                        Author Role / Subtitle
+                      </label>
+                      <input
+                        type="text"
+                        value={authorRole}
+                        onChange={(e) => setAuthorRole(e.target.value)}
+                        className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                        Publish Date
+                      </label>
+                      <input
+                        type="text"
+                        value={publishDate}
+                        onChange={(e) => setPublishDate(e.target.value)}
+                        className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                        Read Time (e.g. 5 min read)
+                      </label>
+                      <input
+                        type="text"
+                        value={readTime}
+                        onChange={(e) => setReadTime(e.target.value)}
+                        className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                      Author Avatar Image Path / URL
+                    </label>
+                    <input
+                      type="text"
+                      value={authorImage}
+                      onChange={(e) => setAuthorImage(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                      Author Biography Text
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={authorBio}
+                      onChange={(e) => setAuthorBio(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                      Article Tags (Comma-separated)
+                    </label>
+                    <input
+                      type="text"
+                      value={tagsText}
+                      onChange={(e) => setTagsText(e.target.value)}
+                      placeholder="e.g. IB English, Cambridge IGCSE, Close Reading"
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                      Primary Pullquote (Red Border Quote)
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={pullquote}
+                      onChange={(e) => setPullquote(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#2E2522]/90 mb-2">
+                      Secondary Pullquote
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={pullquote2}
+                      onChange={(e) => setPullquote2(e.target.value)}
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-sans font-black text-[#9E3E26] mb-2 uppercase tracking-wider font-bold">
+                      Full Article Body Paragraphs (Separate paragraphs with double newlines \n\n)
+                    </label>
+                    <textarea
+                      rows={10}
+                      value={articleParagraphsText}
+                      onChange={(e) => setArticleParagraphsText(e.target.value)}
+                      placeholder="Paragraph 1 (features LitHub drop cap)...\n\nParagraph 2..."
+                      className="w-full px-4 py-2.5 bg-white border border-[#2E2522]/15 text-[#2E2522] font-serif-body text-sm rounded focus:outline-none focus:border-[#9E3E26]"
+                    />
+                  </div>
+                </div>
+              )}
 
               {/* SPECIAL SECTIONS FOR HOME PAGE */}
               {isHomePage && (

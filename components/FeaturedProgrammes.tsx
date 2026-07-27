@@ -18,7 +18,7 @@ export default function FeaturedProgrammes({ title, items }: FeaturedProgrammesP
       title: "CAMBRIDGE & IB ENGLISH",
       description:
         "Personalised support for IGCSE, IB, AS & A Level English Language and Literature, focused on analytical reading, structured writing, and examination success.",
-      link: "/programmes",
+      link: "/ib-english",
       image: "/Cambridge IB English.webp",
     },
     {

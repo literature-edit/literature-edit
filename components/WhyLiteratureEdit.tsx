@@ -53,6 +53,16 @@ export default function WhyLiteratureEdit({ title, items, whySub, whyBody }: Why
           backgroundRepeat: "no-repeat"
         }}
       />
+
+      {/* Decorative background image accent (2.png) */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-[500px] opacity-25 pointer-events-none select-none z-0">
+        <Image
+          src="/2.png"
+          alt="Decorative background accent"
+          fill
+          className="object-contain object-right-center"
+        />
+      </div>
       <div className="max-w-7xl mx-auto relative z-10 space-y-20">
         <div>
           {/* Title */}

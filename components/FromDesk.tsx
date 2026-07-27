@@ -21,21 +21,21 @@ export default function FromDesk({ title, intro, cards }: FromDeskProps) {
       title: "Thoughtful Explorations",
       excerpt: "Thoughtful explorations of literary works, contemporary issues, and the craft of writing.",
       image: "/desk-essay.png",
-      link: "/journal",
+      link: "/thoughtful-explorations",
     },
     {
       label: "READING LISTS",
       title: "Curated Recommendations",
       excerpt: "Curated recommendations for readers at every stage—from classics to contemporary voices.",
       image: "/desk-books.png",
-      link: "/resources",
+      link: "/curated-recommendations",
     },
     {
       label: "STUDIO NOTES",
       title: "Teaching & Research Reflections",
       excerpt: "Observations from teaching, editing, and research, alongside reflections on books and learning.",
       image: "/desk-studio.png",
-      link: "/journal",
+      link: "/teaching-reflections",
     },
   ];
 

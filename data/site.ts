@@ -78,8 +78,19 @@ export type SitePage = {
   beyondEyebrow?: string;
   beyondTitle?: string;
   beyondParagraphs?: string[];
-
   quote?: string;
+
+  // LitHub Style Article Fields
+  author?: string;
+  authorRole?: string;
+  authorImage?: string;
+  authorBio?: string;
+  publishDate?: string;
+  readTime?: string;
+  tags?: string[];
+  pullquote?: string;
+  pullquote2?: string;
+  articleParagraphs?: string[];
 };
 
 export const mainNavLinks: SiteLink[] = [
@@ -534,6 +545,19 @@ export const pages: SitePage[] = [
       "Focused guidance for language analysis, literature essays, unseen texts, coursework confidence, and exam preparation.",
     image: "/hero-books.png",
     imageAlt: "Open literature books prepared for English study",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 27, 2026",
+    readTime: "5 min read",
+    tags: ["IGCSE English", "Cambridge", "Language Analysis", "Unseen Passages", "Essay Craft"],
+    pullquote: "Mastering IGCSE English is about turning casual reading habits into deliberate analytical observation.",
+    pullquote2: "Top examination marks are earned when students learn to evaluate writer's effect with precise textual evidence.",
+    articleParagraphs: [
+      "Cambridge IGCSE English Language and Literature form the baseline for academic literacy in international schools worldwide. Yet many students struggle with the transition from middle school reading to the rigorous demands of IGCSE commentary.",
+      "Our IGCSE programme focuses on building foundational analytical agility. We train students to evaluate writer's effect, dissect persuasive techniques, and structure comparative responses with clarity and poise.",
+      "Through step-by-step feedback cycles and past-paper strategies, students build the exam confidence needed to perform calmly under timed conditions while retaining an authentic appreciation for the texts they study.",
+      "Whether working through unseen passages or preparing set texts like Shakespeare, Orwell, or modern poets, mentorship emphasizes close textual engagement over generic model answers."
+    ],
     highlights: [
       {
         eyebrow: "Skills",
@@ -567,6 +591,20 @@ export const pages: SitePage[] = [
       "Support for Language and Literature, Literature, individual oral work, HL essays, Paper 1, Paper 2, and portfolio thinking.",
     image: "/desk-books.png",
     imageAlt: "Books and annotations arranged for literature study",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 27, 2026",
+    readTime: "6 min read",
+    tags: ["IB English", "Cambridge IGCSE", "Close Reading", "Paper 1", "Paper 2", "Individual Oral"],
+    pullquote: "Literature is not merely a subject to be examined; it is a discipline of attention, teaching us how to read the world with subtlety and precision.",
+    pullquote2: "In IB and Cambridge examinations, top marks belong to students who move beyond summary to reveal the machinery of language.",
+    articleParagraphs: [
+      "The study of English in international curricula—such as the International Baccalaureate (IB) and Cambridge IGCSE / A Levels—is often misunderstood as an exercise in memorising predefined interpretations. Students are frequently taught to look for 'hidden meanings' as though a text were a riddle with a single locked answer. At Literature Edit, we challenge this formulaic approach.",
+      "Close reading is the beating heart of our teaching methodology. When a student learns to observe how word choice, syntactic rhythm, structural turns, and literary motifs shape meaning, the text opens up. Whether analyzing a poem by Carol Ann Duffy, a prose extract from Chimamanda Ngozi Adichie, or a dramatic soliloquy from Shakespeare, analytical writing transforms from a mechanical chore into a confident intellectual conversation.",
+      "For IB English Language & Literature and IB Literature candidates, mastering Paper 1 (Guided Textual Analysis) and Paper 2 (Comparative Essay) demands a synthesis of conceptual understanding and micro-textual evidence. Our mentorship breaks down these demands into actionable, repeatable routines: constructing a thesis with an interpretive spine, organizing body paragraphs around analytical claims rather than plot points, and crafting conclusions that reflect on broader human implications.",
+      "Similarly, for the Individual Oral (IO) and Higher Level (HL) Essay, we guide students through topic selection, global issue framing, and oral delivery. Rather than reciting scripted lines, learners develop the genuine fluency and critical poise required to speak articulately under pressure.",
+      "Ultimately, our goal in Cambridge & IB English mentorship extends beyond exam day. We aim to nurture readers who engage thoughtfully with literature, writers who command language with precision, and thinkers who carry critical awareness into university and beyond."
+    ],
     highlights: [
       {
         eyebrow: "Analysis",
@@ -600,6 +638,18 @@ export const pages: SitePage[] = [
       "Mentorship for poetry, drama, prose, comparative work, literary movements, and interpretive essays.",
     image: "/desk-essay.png",
     imageAlt: "Literature notes beside open books",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 27, 2026",
+    readTime: "6 min read",
+    tags: ["Literature in English", "Poetry", "Drama", "Prose", "Comparative Literature"],
+    pullquote: "Great literature asks for patience. With the right guidance, that patience becomes an enduring academic habit.",
+    pullquote2: "Form, imagery, rhythm, and genre are not arbitrary stylistic flourishes—they are the very engines of meaning.",
+    articleParagraphs: [
+      "Studying literature deeply means engaging with texts beyond their plotlines. It requires investigating how historical context, genre conventions, and authorial craft converge to illuminate human experience.",
+      "In our Literature in English programme, students explore works across periods—from classical drama to post-colonial fiction and contemporary poetry. Sessions are discussion-led, giving students a supportive forum to articulate tentative hypotheses before committing arguments to paper.",
+      "We emphasize structural elegance and textual rigor in essay writing. Learners master the art of integrating direct quotations seamlessly, unpacking complex literary devices, and building comparative frameworks."
+    ],
     highlights: [
       {
         eyebrow: "Texts",
@@ -633,6 +683,18 @@ export const pages: SitePage[] = [
       "A practical studio for planning, drafting, revising, citing, and sharpening academic prose across school and university contexts.",
     image: "/vintage-studio.png",
     imageAlt: "Writing desk with books and research materials",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 26, 2026",
+    readTime: "7 min read",
+    tags: ["Academic Writing", "Research Methods", "Thesis Craft", "Dissertations", "Literature Review"],
+    pullquote: "Academic writing is thinking made legible on the page. Clarity of expression stems from clarity of argument.",
+    pullquote2: "Rigorous academic prose does not require opaque jargon; true scholarship communicates complex ideas with lucidity.",
+    articleParagraphs: [
+      "Writing in an academic context requires balancing intellectual ambition with communicative discipline. Whether crafting an IB Extended Essay, a university research paper, or a dissertation proposal, scholars face the challenge of turning complex ideas into cogent arguments.",
+      "At Literature Edit, academic writing mentorship guides students through the entire research lifecycle: formulating focused research questions, evaluating primary and secondary sources, synthesizing literature reviews, and sculpting logical paragraph hierarchies.",
+      "We place strong emphasis on tone, citation integrity, and sentence-level polish. Writers learn to eliminate filler, sharpen claim-evidence relationships, and develop a scholarly voice that is both authoritative and engaging."
+    ],
     highlights: [
       {
         eyebrow: "Research",
@@ -666,6 +728,18 @@ export const pages: SitePage[] = [
       "Strategic and editorial support for personal statements, essays, interviews, reading plans, and application narratives.",
     image: "/hero-books.png",
     imageAlt: "Books and notes arranged for university application preparation",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 25, 2026",
+    readTime: "6 min read",
+    tags: ["University Applications", "Personal Statements", "SOPs", "College Essays", "Admissions"],
+    pullquote: "The strongest application essays do not merely list achievements—they reveal a mind actively at work.",
+    pullquote2: "Admissions officers read thousands of essays; what stands out is genuine intellectual curiosity told in a clear, human voice.",
+    articleParagraphs: [
+      "University admission essays—from UCAS Personal Statements to US Common App essays and Ivy League supplements—are often the most personal writing a student will ever undertake. The pressure to sound impressive frequently leads applicants into clichés and grandiloquent language.",
+      "Our admissions mentorship approach strips away artificial posturing to uncover the student's genuine intellectual narrative. We help applicants identify the experiences, readings, and questions that have genuinely shaped their academic identity.",
+      "Through collaborative brainstorming, structural outlines, and rigorous line-by-line editorial feedback, we ensure every essay presents a clear, authentic, and memorable voice to admissions committees."
+    ],
     highlights: [
       {
         eyebrow: "Narrative",
@@ -689,6 +763,142 @@ export const pages: SitePage[] = [
     closingTitle: "Applications should sound like a mind at work.",
     closingText:
       "The strongest essays are not merely impressive. They are specific, honest, and intellectually alive.",
+  },
+  {
+    slug: "thoughtful-explorations",
+    label: "Thoughtful Explorations",
+    eyebrow: "Essays",
+    title: "Why We Still Read Literature in an Age of Distraction",
+    intro:
+      "A reflection on why stories and close reading remain one of the deepest ways we learn attention, empathy, and critical poise.",
+    image: "/desk-essay.png",
+    imageAlt: "Essays and notes open on a writing desk",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 24, 2026",
+    readTime: "8 min read",
+    tags: ["Essays", "Literary Criticism", "Close Reading", "Culture", "Reading Practices"],
+    pullquote: "In a world of constant fragmentation, reading complex literature is a quiet act of cognitive resistance.",
+    pullquote2: "Meaning is not something to be consumed instantly in a summary—it is something discovered by staying on the page.",
+    articleParagraphs: [
+      "Why do we continue to read literature in an era dominated by short-form digital streams and automated summaries? The answer lies not in information retrieval, but in the quality of attention that literature demands.",
+      "When we sit with a dense novel or a subtle poem, we are forced to slow down. We enter into another mind's cadence, navigating ambiguity, metaphor, and unresolved tension. This practice builds a deep capacity for empathy and cognitive endurance that no algorithm can replicate.",
+      "Stories act as cognitive attention gyms. They train our minds to hold multiple viewpoints simultaneously, to appreciate nuance over hyperbole, and to resist the urge for instant binary judgments.",
+      "In this essay, we reflect on how literature acts as an anchor for independent thought, reminding us that meaning is not something to be consumed instantly, but something to be lived and interpreted."
+    ],
+    highlights: [
+      {
+        eyebrow: "Attention",
+        title: "Slowing down on the page",
+        description:
+          "How sustained reading rebuilds deep focus and reflective patience.",
+      },
+      {
+        eyebrow: "Empathy",
+        title: "Entering other cadences",
+        description:
+          "Literature allows us to experience perspectives beyond our immediate horizon.",
+      },
+      {
+        eyebrow: "Critical Poise",
+        title: "Resisting speed-reading",
+        description:
+          "True intellectual engagement requires sitting with ambiguity and form.",
+      },
+    ],
+    closingTitle: "A journal is a thinking room.",
+    closingText:
+      "Expect reflections that are practical enough for students and expansive enough for readers who simply love language.",
+  },
+  {
+    slug: "curated-recommendations",
+    label: "Curated Recommendations",
+    eyebrow: "Reading Lists",
+    title: "Books That Stay With You: A Studio Reading List",
+    intro:
+      "A considered library list of recommended books across periods and genres that leave a lasting mark on curious minds.",
+    image: "/desk-books.png",
+    imageAlt: "Curated reading list books arranged on a wooden desk",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 22, 2026",
+    readTime: "5 min read",
+    tags: ["Reading Lists", "Book Recommendations", "Classics", "Modern Literature", "Library"],
+    pullquote: "A truly great book does not leave you where it found you. It alters the landscape of your thinking.",
+    pullquote2: "Curating a reading list is an exercise in literary hospitality, inviting readers to discover voices that endure.",
+    articleParagraphs: [
+      "Curating a reading list is an exercise in literary hospitality. Among the thousands of books published every year, a rare few possess the staying power to redefine how we view language, history, and human relationships.",
+      "This collection gathers recommended texts for students, researchers, and lifelong readers. From timeless classics to overlooked contemporary masterpieces, each selection includes commentary on why it deserves a place on your bookshelf.",
+      "We explore poetry collections that reawaken sensory language, novels that master multi-layered narrative structures, and non-fiction essays that demonstrate prose at its highest clarity."
+    ],
+    highlights: [
+      {
+        eyebrow: "Classics",
+        title: "Prose & poetry selections",
+        description:
+          "Essential works that have shaped literary traditions and analytical thinking.",
+      },
+      {
+        eyebrow: "Modern Masterpieces",
+        title: "Diverse global voices",
+        description:
+          "Contemporary authors who challenge narrative form and broaden cultural horizons.",
+      },
+      {
+        eyebrow: "Commentary",
+        title: "Annotated reading notes",
+        description:
+          "Insights into why each work is selected and how to approach its key themes.",
+      },
+    ],
+    closingTitle: "Books should invite practice.",
+    closingText:
+      "These recommendations are designed to be read, annotated, discussed, and returned to.",
+  },
+  {
+    slug: "teaching-reflections",
+    label: "Teaching Reflections",
+    eyebrow: "Studio Notes",
+    title: "On Writing With Honesty: Moving Beyond Application Clichés",
+    intro:
+      "An editorial perspective on how vulnerability, rigorous structure, and authentic voice meet on the personal statement page.",
+    image: "/desk-studio.png",
+    imageAlt: "Editorial notes and manuscript pages on a warm desk",
+    author: "Asma Khan",
+    authorRole: "Founder & Lead Mentor",
+    publishDate: "July 20, 2026",
+    readTime: "6 min read",
+    tags: ["Studio Notes", "Teaching", "Writing Craft", "Mentorship", "Editing"],
+    pullquote: "Honesty in writing is not about oversharing—it is about finding the exact word for what you actually mean.",
+    pullquote2: "Over-polished, formulaic prose often masks a student's hesitation to take a genuine interpretive stand.",
+    articleParagraphs: [
+      "One of the recurring challenges in teaching writing is helping students let go of what they think they *should* say in order to discover what they *actually* think. Over-polished, formulaic prose often masks a hesitation to take an interpretive stand.",
+      "In this studio note, we explore the balance between vulnerability and structure in student essays. We share practical exercises for breaking through writer's block and cultivating an authentic written voice.",
+      "When a writer stops trying to impersonate a textbook and starts communicating with precision, the prose becomes alive. That is the moment when essay writing turns from a submission obligation into genuine expression."
+    ],
+    highlights: [
+      {
+        eyebrow: "Voice",
+        title: "Beyond typical clichés",
+        description:
+          "How to replace generic proclamations with concrete intellectual observations.",
+      },
+      {
+        eyebrow: "Balance",
+        title: "Vulnerability and structure",
+        description:
+          "Maintaining academic discipline while expressing authentic personal voice.",
+      },
+      {
+        eyebrow: "Editing",
+        title: "Draft-revision rhythms",
+        description:
+          "Practical editing routines that refine sentence structure without erasing tone.",
+      },
+    ],
+    closingTitle: "Writing is thinking made legible.",
+    closingText:
+      "We invite you to join a learning community built on curiosity, precision, and a genuine love for language.",
   },
   {
     slug: "privacy-policy",
