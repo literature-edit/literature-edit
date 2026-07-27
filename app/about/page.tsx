@@ -10,7 +10,7 @@ import { AudienceCard } from "../../data/site";
 // Gold hand-drawn style underline doodle
 const UnderlineScribble = () => (
   <svg
-    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48 h-3 text-[#C5A880]/80 pointer-events-none select-none"
+    className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-48 h-3 text-[#C5A880]/80 pointer-events-none select-none" 
     viewBox="0 0 200 10"
     fill="none"
     stroke="currentColor"
@@ -26,6 +26,7 @@ interface OrganicImageProps {
   alt: string;
   index?: number;
 }
+
 
 const OrganicImage = ({ src, alt, index = 0 }: OrganicImageProps) => {
   const borderRadii = [
