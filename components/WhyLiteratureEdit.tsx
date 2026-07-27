@@ -42,33 +42,25 @@ export default function WhyLiteratureEdit({ title, items, whySub, whyBody }: Why
   const displayWhyBody = whyBody || "Here, literature is explored not only as a subject, but as a way of thinking. Every lesson, editorial project, and mentoring session is guided by patience, precision, and an enduring appreciation for ideas.";
 
   return (
-    <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/40 py-20 px-6 sm:px-12 relative overflow-hidden">
-      {/* Background texture overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0 opacity-15"
-        style={{
-          backgroundImage: "url('/bg.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      />
-
-      {/* Decorative background image accent (2.png) */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-[500px] opacity-25 pointer-events-none select-none z-0">
-        <Image
-          src="/2.png"
-          alt="Decorative background accent"
-          fill
-          className="object-contain object-right-center"
+    <>
+      {/* SECTION 1: My Approach (without 2.png) */}
+      <section className="w-full bg-[#FCFAF7] border-y border-[#C5A880]/30 py-20 px-6 sm:px-12 relative overflow-hidden">
+        {/* Background texture overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-0 opacity-15"
+          style={{
+            backgroundImage: "url('/bg.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat"
+          }}
         />
-      </div>
-      <div className="max-w-7xl mx-auto relative z-10 space-y-20">
-        <div>
+
+        <div className="max-w-7xl mx-auto relative z-10 space-y-16">
           {/* Title */}
-          <div className="mb-16">
+          <div>
             <SectionHeading
-              eyebrow="Section 4 — Guidance"
+              eyebrow="Approach & Guidance"
               title={displayTitle}
               description="A studio shaped by precision, empathy, and the belief that strong writing begins with better attention."
             />
@@ -112,23 +104,32 @@ export default function WhyLiteratureEdit({ title, items, whySub, whyBody }: Why
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Section 5 — Why Literature Edit? Callout Banner */}
-        <ScrollReveal delay={150} className="max-w-4xl mx-auto text-center p-10 bg-[#FAF6F0] border border-[#C5A880]/35 rounded-2xl shadow-sm">
-          <span className="font-display text-[10px] font-bold tracking-[0.24em] text-[#9E3E26] uppercase block mb-3">
-            Section 5
-          </span>
-          <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-[#2E2522] mb-4">
-            Why Literature Edit?
-          </h3>
-          <p className="font-serif-body text-lg sm:text-xl font-bold text-[#9E3E26] leading-relaxed mb-4">
-            "{displayWhySub}"
-          </p>
-          <p className="font-serif-body text-base leading-relaxed text-[#2E2522]/85 max-w-2xl mx-auto font-medium">
-            {displayWhyBody}
-          </p>
-        </ScrollReveal>
-      </div>
-    </section>
+      {/* SECTION 2: Separate Standalone Section — Why Literature Edit? */}
+      <section className="w-full bg-[#FAF6F0] py-20 px-6 sm:px-12 border-b border-[#C5A880]/30 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <ScrollReveal>
+            <span className="font-display text-[10px] font-bold tracking-[0.26em] text-[#9E3E26] uppercase block mb-3">
+              Philosophy & Mentorship
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2E2522] mb-6 tracking-tight">
+              Why Literature Edit?
+            </h2>
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="h-px w-12 bg-[#C5A880]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#9E3E26]" />
+              <div className="h-px w-12 bg-[#C5A880]" />
+            </div>
+            <p className="font-serif-body text-xl sm:text-2xl text-[#9E3E26] italic font-semibold leading-relaxed mb-6 max-w-2xl mx-auto">
+              "{displayWhySub}"
+            </p>
+            <p className="font-serif-body text-base sm:text-lg leading-[1.8] text-[#2E2522]/85 max-w-2xl mx-auto font-medium">
+              {displayWhyBody}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

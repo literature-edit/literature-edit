@@ -16,12 +16,12 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#F3EDE2] border-t border-[#C5A880]/40 text-[#2E2522] pt-16 pb-8 px-6 sm:px-12 relative overflow-hidden">
       {/* Decorative Botanical Branch (flower.webp) background on the bottom right */}
-      <div className="absolute right-0 bottom-0 w-48 h-72 opacity-25 pointer-events-none select-none z-0">
+      <div className="absolute right-0 bottom-0 w-64 sm:w-72 h-96 sm:h-[420px] opacity-15 pointer-events-none select-none z-0">
         <Image
           src="/flower.webp"
           alt="Botanical flower decoration"
           fill
-          className="object-contain object-right-bottom"
+          className="object-contain object-right-bottom brightness-0"
         />
       </div>
 

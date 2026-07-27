@@ -53,20 +53,20 @@ export default function PageTemplate({ page }: PageTemplateProps) {
   return (
     <div className="min-h-screen bg-[#FAF6F0] flex flex-col text-[#2E2522] relative overflow-x-clip">
       {/* Decorative background image accents (1.png, 2.png, flower.webp) */}
-      <div className="absolute right-0 top-16 w-80 h-[500px] opacity-25 pointer-events-none select-none z-0">
+      <div className="absolute right-0 top-16 w-80 h-[500px] opacity-15 pointer-events-none select-none z-0">
         <Image
           src={bgDecoration}
           alt="Decorative background accent"
           fill
-          className="object-contain object-right-top"
+          className={`object-contain object-right-top ${bgDecoration === "/flower.webp" ? "brightness-0" : ""}`}
         />
       </div>
-      <div className="absolute left-0 bottom-60 w-72 h-[450px] opacity-20 pointer-events-none select-none z-0">
+      <div className="absolute left-0 bottom-60 w-72 h-[450px] opacity-15 pointer-events-none select-none z-0">
         <Image
           src={secondaryBgDecoration}
           alt="Decorative background accent"
           fill
-          className="object-contain object-left-bottom"
+          className={`object-contain object-left-bottom ${secondaryBgDecoration === "/flower.webp" ? "brightness-0" : ""}`}
         />
       </div>
 

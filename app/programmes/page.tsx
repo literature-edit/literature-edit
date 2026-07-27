@@ -184,12 +184,12 @@ export default async function ProgrammesPage() {
           className="object-contain object-right-top"
         />
       </div>
-      <div className="absolute left-0 bottom-40 w-80 h-[480px] opacity-20 pointer-events-none select-none z-0">
+      <div className="absolute left-0 bottom-40 w-80 h-[480px] opacity-15 pointer-events-none select-none z-0">
         <Image
           src="/flower.webp"
           alt="Decorative background accent"
           fill
-          className="object-contain object-left-bottom"
+          className="object-contain object-left-bottom brightness-0"
         />
       </div>
 

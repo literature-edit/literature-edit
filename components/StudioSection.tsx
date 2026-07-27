@@ -34,12 +34,12 @@ export default function StudioSection({ title, eyebrow, paragraphs }: StudioSect
       />
 
       {/* Decorative Botanical Branch (flower.webp) background on the right */}
-      <div className="absolute right-0 bottom-0 w-80 h-[480px] opacity-30 pointer-events-none select-none z-0">
+      <div className="absolute right-0 bottom-0 w-80 lg:w-[420px] h-[520px] lg:h-[600px] opacity-15 pointer-events-none select-none z-0">
         <Image
           src="/flower.webp"
           alt="Botanical flower decoration"
           fill
-          className="object-contain object-right-bottom"
+          className="object-contain object-right-bottom brightness-0"
         />
       </div>
 
