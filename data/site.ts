@@ -515,13 +515,13 @@ export const pages: SitePage[] = [
     highlights: [
       {
         eyebrow: "Email",
-        title: "asmakhan7783@gmail.com",
+        title: "asmakhan@literatureedit.com",
         description:
           "Share the project, deadline, learner level, or text you would like to work on.",
       },
       {
         eyebrow: "Location",
-        title: "Mumbai, India",
+        title: "Mumbai & Japan",
         description:
           "Remote sessions and editorial work are available for students and writers elsewhere.",
       },

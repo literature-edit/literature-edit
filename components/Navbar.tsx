@@ -56,7 +56,7 @@ export default function Navbar() {
             </svg>
           </a>
           <a
-            href="mailto:asmakhan7783@gmail.com"
+            href="mailto:asmakhan@literatureedit.com"
             className="hover:text-[#C5A880] transition-colors"
             aria-label="Email"
           >

@@ -73,7 +73,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="mailto:asmakhan7783@gmail.com"
+              href="mailto:asmakhan@literatureedit.com"
               className="text-[#9E3E26] hover:text-[#85321E] transition-colors"
               aria-label="Email"
             >
@@ -128,18 +128,18 @@ export default function Footer() {
           </span>
           <div className="flex flex-col font-serif-body text-[14px] sm:text-[15px] leading-relaxed text-[#2E2522]/90 font-medium space-y-2">
             <a
-              href="mailto:asmakhan7783@gmail.com"
+              href="mailto:asmakhan@literatureedit.com"
               className="hover:text-[#9E3E26] transition-colors underline decoration-[#C5A880]/50 underline-offset-4"
             >
-              asmakhan7783@gmail.com
+              asmakhan@literatureedit.com
             </a>
             <a
-              href="tel:+928369663562"
+              href="tel:+918369663562"
               className="hover:text-[#9E3E26] transition-colors"
             >
-              +92-8369663562
+              +91 8369663562
             </a>
-            <p className="opacity-90 pt-1">Mumbai, India</p>
+            <p className="opacity-90 pt-1">Mumbai & Japan</p>
           </div>
         </div>
       </div>

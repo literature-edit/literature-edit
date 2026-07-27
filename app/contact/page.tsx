@@ -81,19 +81,19 @@ export default async function ContactPage() {
   const contactInfoList = [
     {
       title: "Email Inquiry",
-      subtitle: "asmakhan7783@gmail.com",
+      subtitle: "asmakhan@literatureedit.com",
       description: "Share the manuscript size, deadlines, learner goals, or specific texts you would like to review.",
       icon: "/personalised-mentorship.webp",
     },
     {
       title: "Direct Contact / WhatsApp",
-      subtitle: "+92-8369663562",
+      subtitle: "+91 8369663562",
       description: "Reach out via call or message for quick programme queries or consultation scheduling.",
       icon: "/academic-excellence.webp",
     },
     {
       title: "Studio Location",
-      subtitle: "Mumbai & Remote",
+      subtitle: "Mumbai & Japan",
       description: "Mentorship and editorial feedback are conducted remotely for authors and students globally.",
       icon: "/critikal-thinking.webp",
     },
@@ -105,7 +105,7 @@ export default async function ContactPage() {
 
       <main>
         {/* Section 1: Hero */}
-        <section className="relative w-full h-[80vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+        <section className="relative w-full h-[45vh] min-h-[320px] flex items-center justify-center text-center overflow-hidden">
           {/* Backdrop Image */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -125,19 +125,6 @@ export default async function ContactPage() {
               <h1 className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-[#FAF6F0] leading-[1.05] tracking-[0.06em] uppercase">
                 {displayTitle}
               </h1>
-
-              <div className="h-px w-24 bg-[#C5A880] mx-auto my-6" />
-
-              <p className="font-serif-body text-[#FAF6F0]/90 text-[15px] sm:text-lg leading-[1.8] max-w-2xl font-medium">
-                {displayIntro}
-              </p>
-
-              <a
-                href="#contact-section"
-                className="mt-10 inline-flex items-center justify-center px-8 py-3.5 bg-[#FAF6F0] hover:bg-[#C5A880] hover:text-[#2E2522] text-xs tracking-[0.2em] font-display font-bold text-[#9E3E26] uppercase transition-all duration-300 rounded shadow-sm"
-              >
-                Get In Touch
-              </a>
             </ScrollReveal>
           </div>
         </section>
