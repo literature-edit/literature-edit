@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Social Icons */}
         <div className="flex items-center gap-4">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/litedit_by_asma/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#C5A880] transition-colors"
@@ -43,7 +43,7 @@ export default function Navbar() {
             </svg>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/asma-khan-716a39160/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#C5A880] transition-colors"

@@ -27,7 +27,7 @@ This version has breaking changes - APIs, conventions, and file structure may al
   - `Lora` (`--font-lora`) for serif body text.
   - **Sentence-Case Titles**: Page headers and titles MUST use normal sentence-case (`normal-case font-serif-body font-normal`) instead of force-uppercase transforms.
 - **Background Accents**:
-  - Background accents (`1.png`, `2.png`, `flower.webp`) MUST retain their exact original colors at `opacity-20` / `opacity-25`. Do NOT apply `brightness-0` or dark filters.
+  - Background accents (`1.png` and `flower.webp` with `brightness-0 opacity-15`) are used as background artwork accents across pages (`2.png` has been removed completely from all sections).
 
 ## 3. Page Layouts & Sticky Sidebar Mechanics
 - **LitHub & Bookmarks Layouts**:

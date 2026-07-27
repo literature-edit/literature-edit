@@ -81,23 +81,7 @@ export default async function JournalPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF6F0] flex flex-col text-[#2E2522] relative overflow-x-clip">
-      {/* Decorative background image accents (2.png & flower.webp) */}
-      <div className="absolute right-0 top-32 w-80 h-[500px] opacity-25 pointer-events-none select-none z-0">
-        <Image
-          src="/2.png"
-          alt="Decorative background accent"
-          fill
-          className="object-contain object-right-top"
-        />
-      </div>
-      <div className="absolute left-0 bottom-40 w-80 h-[480px] opacity-15 pointer-events-none select-none z-0">
-        <Image
-          src="/flower.webp"
-          alt="Decorative background accent"
-          fill
-          className="object-contain object-left-bottom brightness-0"
-        />
-      </div>
+
 
       <Navbar />
 

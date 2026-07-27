@@ -12,6 +12,9 @@ export default function Preloader() {
   const [phase, setPhase] = useState<"logo" | "logo-fade" | "stairs-exit" | "done">("logo");
 
   useEffect(() => {
+    // Lock scrolling while preloader is active
+    document.body.style.overflow = "hidden";
+
     // Start fading out the logo
     const t1 = setTimeout(
       () => setPhase("logo-fade"),
@@ -31,25 +34,17 @@ export default function Preloader() {
       LOGO_SHOW_DURATION + LOGO_FADE_DURATION + STAIR_EXIT_DELAY + totalStairExit
     );
 
-    document.body.style.overflow = "hidden";
-
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
       document.body.style.overflow = "";
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.remove("show-preloader");
-      }
     };
   }, []);
 
   useEffect(() => {
     if (phase === "done") {
       document.body.style.overflow = "";
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.remove("show-preloader");
-      }
     }
   }, [phase]);
 
@@ -57,7 +52,7 @@ export default function Preloader() {
 
   return (
     <div
-      className="preloader-overlay fixed inset-0 z-[9999] pointer-events-auto"
+      className="preloader-overlay fixed inset-0 z-[9999] pointer-events-auto bg-[#FAF6F0]"
       aria-hidden="true"
     >
       {/* Stair panels background */}
@@ -152,7 +147,7 @@ export default function Preloader() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes stairExit {
           0% {
             transform: scaleY(1);

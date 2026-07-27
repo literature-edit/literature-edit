@@ -47,7 +47,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-4 mt-6">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/litedit_by_asma/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#9E3E26] hover:text-[#85321E] transition-colors"
@@ -60,7 +60,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/asma-khan-716a39160/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#9E3E26] hover:text-[#85321E] transition-colors"

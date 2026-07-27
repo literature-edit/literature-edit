@@ -22,15 +22,7 @@ export default function Hero({ title, eyebrow, intro, image, imageAlt }: HeroPro
   return (
     <section className="relative w-full px-6 sm:px-12 lg:px-16 pt-8 pb-12 lg:pt-14 lg:pb-16 flex flex-col justify-between overflow-hidden bg-[#FAF6F0]">
 
-      {/* Decorative Top Right Botanical Accent */}
-      <div className="absolute right-0 top-0 w-80 h-[480px] opacity-20 pointer-events-none select-none z-0">
-        <Image
-          src="/1.png"
-          alt="Decorative background accent"
-          fill
-          className="object-contain object-right-top"
-        />
-      </div>
+
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* TOP ROW: Image Card on Left, Intro & Actions on Right */}
