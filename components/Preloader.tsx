@@ -12,15 +12,6 @@ export default function Preloader() {
   const [phase, setPhase] = useState<"logo" | "logo-fade" | "stairs-exit" | "done">("logo");
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hasLoaded = sessionStorage.getItem("le-preloader-shown");
-      if (hasLoaded) {
-        setPhase("done");
-        return;
-      }
-      sessionStorage.setItem("le-preloader-shown", "1");
-    }
-
     // Start fading out the logo
     const t1 = setTimeout(
       () => setPhase("logo-fade"),

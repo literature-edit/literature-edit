@@ -39,9 +39,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                if (typeof window !== 'undefined' && !sessionStorage.getItem('le-preloader-shown')) {
-                  document.documentElement.classList.add('show-preloader');
-                }
+                document.documentElement.classList.add('show-preloader');
               } catch (e) {}
             `,
           }}
