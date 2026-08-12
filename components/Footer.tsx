@@ -145,8 +145,22 @@ export default function Footer() {
       </div>
 
       {/* Copyright row */}
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center pt-8 text-xs sm:text-[13px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
-        <p>&copy; {currentYear} Literature Edit. All rights reserved.</p>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 text-xs sm:text-[13px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-center sm:text-left">
+          <p>&copy; {currentYear} Literature Edit. All rights reserved.</p>
+          <span className="hidden sm:inline text-[#C5A880]/60">|</span>
+          <p>
+            Powered by{" "}
+            <a
+              href="https://aadii.design/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#9E3E26] transition-colors"
+            >
+              Aadi Design Studio
+            </a>
+          </p>
+        </div>
         <div className="flex gap-4">
           {legalFooterLinks.map((link, index) => (
             <React.Fragment key={link.href}>
