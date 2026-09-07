@@ -147,17 +147,23 @@ export default function Footer() {
       {/* Copyright row */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 text-xs sm:text-[13px] tracking-wider font-display font-medium text-[#2E2522]/60 gap-4 relative z-10">
         <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-center sm:text-left">
-          <p>&copy; {currentYear} Literature Edit. All rights reserved.</p>
-          <span className="hidden sm:inline text-[#C5A880]/60">|</span>
-          <p>
-            Powered by{" "}
+          <p className="font-bold">&copy; {currentYear} Literature Edit. All rights reserved.</p>
+          <span className="hidden sm:inline text-[#C5A880]/60 font-bold">|</span>
+          <p className="flex items-center gap-1 font-bold">
+            <span>Powered by</span>
             <a
               href="https://aadii.design/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#9E3E26] transition-colors"
+              className="flex items-center hover:text-[#9E3E26] transition-colors"
             >
-              Aadi Design Studio
+              <Image
+                src="/aadii-design-studio.webp"
+                alt="Aadii Design Studio"
+                width={120}
+                height={24}
+                className="h-6 w-auto object-contain"
+              />
             </a>
           </p>
         </div>
